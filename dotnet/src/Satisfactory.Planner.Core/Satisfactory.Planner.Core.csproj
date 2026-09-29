@@ -8,4 +8,8 @@
     <RootNamespace>Satisfactory.Planner.Core</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="Satisfactory.Planner.Tests" />
+  </ItemGroup>
+
 </Project>
