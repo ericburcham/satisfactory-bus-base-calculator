@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Satisfactory.Graphs\Satisfactory.Graphs.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <RootNamespace>Satisfactory.Planner.Core</RootNamespace>
+  </PropertyGroup>
+
+</Project>

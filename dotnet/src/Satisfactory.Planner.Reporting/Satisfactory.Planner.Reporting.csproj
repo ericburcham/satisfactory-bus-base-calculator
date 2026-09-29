@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Satisfactory.Planner.Core\Satisfactory.Planner.Core.csproj" />
+    <ProjectReference Include="..\Satisfactory.Graphs\Satisfactory.Graphs.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <RootNamespace>Satisfactory.Planner.Reporting</RootNamespace>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Satisfactory.Planner.Tests</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Satisfactory.Graphs\Satisfactory.Graphs.csproj" />
+    <ProjectReference Include="..\..\src\Satisfactory.Planner.Core\Satisfactory.Planner.Core.csproj" />
+    <ProjectReference Include="..\..\src\Satisfactory.Planner.Reporting\Satisfactory.Planner.Reporting.csproj" />
+    <ProjectReference Include="..\..\src\Satisfactory.Planner.Graphviz\Satisfactory.Planner.Graphviz.csproj" />
+    <ProjectReference Include="..\..\src\Satisfactory.Planner.Cli\Satisfactory.Planner.Cli.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit.Analyzers">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="NUnit3TestAdapter" />
+  </ItemGroup>
+
+</Project>

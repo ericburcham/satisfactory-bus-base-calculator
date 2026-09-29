@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Satisfactory.Planner.Core\Satisfactory.Planner.Core.csproj" />
+    <ProjectReference Include="..\Satisfactory.Planner.Reporting\Satisfactory.Planner.Reporting.csproj" />
+    <ProjectReference Include="..\Satisfactory.Planner.Graphviz\Satisfactory.Planner.Graphviz.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Satisfactory.Planner.Cli</RootNamespace>
+    <AssemblyName>satisfactory-planner</AssemblyName>
+  </PropertyGroup>
+
+</Project>

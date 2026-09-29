@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Satisfactory.Graphs/Satisfactory.Graphs.csproj" />
+    <Project Path="src/Satisfactory.Planner.Cli/Satisfactory.Planner.Cli.csproj" />
+    <Project Path="src/Satisfactory.Planner.Core/Satisfactory.Planner.Core.csproj" />
+    <Project Path="src/Satisfactory.Planner.Graphviz/Satisfactory.Planner.Graphviz.csproj" />
+    <Project Path="src/Satisfactory.Planner.Reporting/Satisfactory.Planner.Reporting.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Satisfactory.Planner.Tests/Satisfactory.Planner.Tests.csproj" />
+  </Folder>
+</Solution>
