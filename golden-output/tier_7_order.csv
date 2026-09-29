@@ -1,0 +1,49 @@
+step,item,new_machines,building,recipe,alternate,excess_target,sink_disposal,inputs,byproducts,mw
+1,Heavy Oil Residue,9,Refinery,Alternate: Heavy Oil Residue,yes,,,Crude Oil,Polymer Resin,270
+2,Polymer Resin,15,Refinery,Alternate: Polymer Resin,yes,,,Crude Oil,Heavy Oil Residue,450
+3,Silica,2,Constructor,Silica,,,,Raw Quartz,,8
+4,Steel Pipe,2,Constructor,Steel Pipe,,,,Steel Ingot (bus),,8
+5,Alumina Solution,4,Refinery,Alternate: Sloppy Alumina,yes,yes,,Bauxite; Water,,120
+6,Compacted Coal,1,Assembler,Alternate: Compacted Coal,yes,,,Coal; Sulfur,,15
+7,Copper Ingot,7,Refinery,Alternate: Pure Copper Ingot,yes,,,Copper Ore; Water,,210
+8,Iron Ingot,1,Refinery,Alternate: Pure Iron Ingot,yes,,,Iron Ore; Water,,30
+9,Sulfuric Acid,2,Refinery,Sulfuric Acid,,yes,,Sulfur; Water,,60
+10,Gas Filter,1,Manufacturer,Gas Filter,,,,Fabric (bus); Coal; Iron Plate (bus),,55
+11,Fuel,6,Refinery,Residual Fuel,,,,Heavy Oil Residue (#1),,180
+12,Petroleum Coke,7,Refinery,Petroleum Coke,,,,Heavy Oil Residue (#1),,210
+13,Copper Sheet,1,Refinery,Alternate: Steamed Copper Sheet,yes,,,Copper Ingot (#7); Water,,30
+14,Plastic,37,Refinery,Residual Plastic,,,,Polymer Resin (#2); Water,,1110
+15,Smokeless Powder,1,Refinery,Smokeless Powder,,,,Black Powder (bus); Heavy Oil Residue (#1),,30
+16,Empty Canister,3,Constructor,Empty Canister,,,,Plastic (#14),,12
+17,Aluminum Scrap,3,Refinery,Alternate: Electrode Aluminum Scrap,yes,yes,,Alumina Solution (#5); Petroleum Coke (#12),Water,90
+18,Caterium Ingot,2,Foundry,Alternate: Tempered Caterium Ingot,yes,,,Caterium Ore; Petroleum Coke (#12),,32
+19,Rifle Ammo,2,Assembler,Rifle Ammo,,,,Copper Sheet (#13); Smokeless Powder (#15),,30
+20,Rubber,8,Refinery,Alternate: Recycled Rubber,yes,,,Plastic (#14); Fuel (#11),,240
+21,Aluminum Ingot,10,Smelter,Alternate: Pure Aluminum Ingot,,,,Aluminum Scrap (#17),,40
+22,Circuit Board,16,Assembler,Alternate: Electrode Circuit Board,yes,,,Rubber (#20); Petroleum Coke (#12),,240
+23,Packaged Alumina Solution,1,Packager,Packaged Alumina Solution,,yes,,Alumina Solution (#5); Empty Canister (#16),,10
+24,Packaged Sulfuric Acid,1,Packager,Packaged Sulfuric Acid,,yes,,Sulfuric Acid (#9); Empty Canister (#16),,10
+25,Packaged Turbofuel,1,Packager,Packaged Turbofuel,,,,Turbofuel (bus); Empty Canister (#16),,10
+26,Quickwire,4,Assembler,Alternate: Fused Quickwire,yes,,,Caterium Ingot (#18); Copper Ingot (#7),,60
+27,Reinforced Iron Plate,3,Assembler,Alternate: Adhered Iron Plate,yes,,,Iron Plate (bus); Rubber (#20),,45
+28,Wire,3,Assembler,Alternate: Fused Wire,yes,,,Copper Ingot (#7); Caterium Ingot (#18),,45
+29,Aluminum Casing,2,Constructor,Aluminum Casing,,yes,,Aluminum Ingot (#21),,8
+30,Steel Beam,1,Constructor,Alternate: Aluminum Beam,yes,,,Aluminum Ingot (#21),,4
+31,AI Limiter,1,Assembler,Alternate: Plastic AI Limiter,yes,,,Quickwire (#26); Plastic (#14),,15
+32,Alclad Aluminum Sheet,3,Assembler,Alclad Aluminum Sheet,,yes,,Aluminum Ingot (#21); Copper Ingot (#7),,45
+33,Cable,3,Assembler,Alternate: Insulated Cable,yes,,,Wire (#28); Rubber (#20),,45
+34,Stator,2,Assembler,Stator,,,,Steel Pipe (#4); Wire (#28),,30
+35,High-Speed Connector,3,Manufacturer,Alternate: Silicon High-Speed Connector,yes,,,Quickwire (#26); Silica (#3); Circuit Board (#22),,165
+36,Screws,2,Constructor,Alternate: Steel Screws,yes,,,Steel Beam (#30),,8
+37,Automated Wiring,3,Assembler,Automated Wiring,,,,Stator (#34); Cable (#33),,45
+38,Encased Industrial Beam,1,Assembler,Encased Industrial Beam,,,,Steel Beam (#30); Concrete (bus),,15
+39,Computer,7,Manufacturer,Computer,,,,Circuit Board (#22); Cable (#33); Plastic (#14),,385
+40,Crystal Oscillator,1,Manufacturer,Alternate: Insulated Crystal Oscillator,yes,,,Quartz Crystal (bus); Rubber (#20); AI Limiter (#31),,55
+41,Iodine-Infused Filter,1,Manufacturer,Iodine-Infused Filter,,yes,,Gas Filter (#10); Quickwire (#26); Aluminum Casing (#29),,55
+42,Turbo Rifle Ammo,1,Manufacturer,Turbo Rifle Ammo,,yes,,Rifle Ammo (#19); Aluminum Casing (#29); Packaged Turbofuel (#25),,55
+43,Battery,1,Manufacturer,Alternate: Classic Battery,yes,yes,,Sulfur; Alclad Aluminum Sheet (#32); Plastic (#14); Wire (#28),,55
+44,Modular Frame,2,Assembler,Alternate: Bolted Frame,yes,,,Reinforced Iron Plate (#27); Screws (#36),,30
+45,Radio Control Unit,1,Manufacturer,Radio Control Unit,,yes,,Aluminum Casing (#29); Crystal Oscillator (#40); Computer (#39),,55
+46,Adaptive Control Unit,2,Manufacturer,Adaptive Control Unit,,,,Automated Wiring (#37); Circuit Board (#22); Heavy Modular Frame (bus); Computer (#39),,110
+47,Supercomputer,2,Manufacturer,Supercomputer,,yes,,Computer (#39); AI Limiter (#31); High-Speed Connector (#35); Plastic (#14),,110
+48,Assembly Director System,1,Assembler,Assembly Director System,,yes,,Adaptive Control Unit (#46); Supercomputer (#47),,15

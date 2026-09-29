@@ -1,0 +1,90 @@
+step,item,new_machines,building,recipe,alternate,excess_target,sink_disposal,inputs,byproducts,mw
+1,Excited Photonic Matter,7,Converter,Excited Photonic Matter,,yes,,,,1750.0
+2,Heavy Oil Residue,140,Refinery,Alternate: Heavy Oil Residue,yes,,,Crude Oil,Polymer Resin,4200
+3,Polymer Resin,18,Refinery,Alternate: Polymer Resin,yes,,,Crude Oil,Heavy Oil Residue,540
+4,Reanimated SAM,11,Constructor,Reanimated SAM,,,,SAM,,44
+5,Silica,1,Constructor,Silica,,,,Raw Quartz,,4
+6,Alumina Solution,7,Refinery,Alternate: Sloppy Alumina,yes,,,Bauxite; Water,,210
+7,Copper Ingot,112,Refinery,Alternate: Pure Copper Ingot,yes,,,Copper Ore; Water,,3360
+8,Iron Ingot,4,Refinery,Alternate: Pure Iron Ingot,yes,,,Iron Ore; Water,,120
+9,Quartz Crystal,10,Refinery,Alternate: Pure Quartz Crystal,yes,,,Raw Quartz; Water,,300
+10,Sulfuric Acid,2,Refinery,Sulfuric Acid,,,,Sulfur; Water,,60
+11,Copper Powder,12,Constructor,Copper Powder,,,,Copper Ingot (#7),,48
+12,Dark Matter Residue,1,Converter,Dark Matter Residue,,yes,,Reanimated SAM (#4),,250.0
+13,Fuel,19,Refinery,Residual Fuel,,,,Heavy Oil Residue (#2),,570
+14,Petroleum Coke,119,Refinery,Petroleum Coke,,,,Heavy Oil Residue (#2),,3570
+15,Copper Sheet,1,Refinery,Alternate: Steamed Copper Sheet,yes,,,Copper Ingot (#7); Water,,30
+16,Plastic,85,Refinery,Residual Plastic,,,,Polymer Resin (#3); Water,,2550
+17,Diamonds,17,Particle Accelerator,Alternate: Petroleum Diamonds,yes,yes,,Petroleum Coke (#14),,8500.0
+18,Aluminum Scrap,9,Refinery,Alternate: Electrode Aluminum Scrap,yes,,,Alumina Solution (#6); Petroleum Coke (#14),Water,270
+19,Caterium Ingot,4,Foundry,Alternate: Tempered Caterium Ingot,yes,,,Caterium Ore; Petroleum Coke (#14),,64
+20,Iron Plate,7,Assembler,Alternate: Coated Iron Plate,yes,,,Iron Ingot (#8); Plastic (#16),,105
+21,Rubber,23,Refinery,Alternate: Recycled Rubber,yes,,,Plastic (#16); Fuel (#13),,690
+22,Steel Ingot,3,Foundry,Alternate: Coke Steel Ingot,yes,,,Iron Ore; Petroleum Coke (#14),,48
+23,Turbofuel,2,Blender,Alternate: Turbo Blend Fuel,yes,,,Fuel (#13); Heavy Oil Residue (#2); Sulfur; Petroleum Coke (#14),,150
+24,Aluminum Ingot,48,Smelter,Alternate: Pure Aluminum Ingot,,,,Aluminum Scrap (#18),,192
+25,Steel Pipe,8,Constructor,Steel Pipe,,,,Steel Ingot (#22),,32
+26,Time Crystal,40,Converter,Time Crystal,,yes,,Diamonds (#17),,10000.0
+27,Circuit Board,32,Assembler,Alternate: Electrode Circuit Board,yes,,,Rubber (#21); Petroleum Coke (#14),,480
+28,Concrete,9,Assembler,Alternate: Rubber Concrete,yes,,,Limestone; Rubber (#21),,135
+29,Quickwire,9,Assembler,Alternate: Fused Quickwire,yes,,,Caterium Ingot (#19); Copper Ingot (#7),,135
+30,Reinforced Iron Plate,15,Assembler,Alternate: Adhered Iron Plate,yes,,,Iron Plate (#20); Rubber (#21),,225
+31,Wire,10,Assembler,Alternate: Fused Wire,yes,,,Copper Ingot (#7); Caterium Ingot (#19),,150
+32,Nitric Acid,3,Blender,Nitric Acid,,,,Nitrogen Gas; Water; Iron Plate (#20),,225
+33,Aluminum Casing,4,Constructor,Aluminum Casing,,,,Aluminum Ingot (#24),,16
+34,Empty Fluid Tank,1,Constructor,Empty Fluid Tank,,,,Aluminum Ingot (#24),,4
+35,Steel Beam,5,Constructor,Alternate: Aluminum Beam,yes,,,Aluminum Ingot (#24),,20
+36,AI Limiter,7,Assembler,Alternate: Plastic AI Limiter,yes,,,Quickwire (#29); Plastic (#16),,105
+37,Alclad Aluminum Sheet,10,Assembler,Alclad Aluminum Sheet,,,,Aluminum Ingot (#24); Copper Ingot (#7),,150
+38,Cable,4,Assembler,Alternate: Insulated Cable,yes,,,Wire (#31); Rubber (#21),,60
+39,Dark Matter Crystal,6,Particle Accelerator,Alternate: Dark Matter Trap,yes,yes,,Time Crystal (#26); Dark Matter Residue (#12),,6000.0
+40,Ficsite Ingot,4,Converter,Ficsite Ingot (Aluminum),,,,Reanimated SAM (#4); Aluminum Ingot (#24),,1000.0
+41,Rocket Fuel,1,Blender,Rocket Fuel,,,,Turbofuel (#23); Nitric Acid (#32),Compacted Coal,75
+42,Stator,8,Assembler,Stator,,,,Steel Pipe (#25); Wire (#31),,120
+43,Encased Uranium Cell,1,Blender,Encased Uranium Cell,,,,Uranium; Concrete (#28); Sulfuric Acid (#10),Sulfuric Acid,75
+44,High-Speed Connector,1,Manufacturer,Alternate: Silicon High-Speed Connector,yes,,,Quickwire (#29); Silica (#5); Circuit Board (#27),,55
+45,SAM Fluctuator,2,Manufacturer,SAM Fluctuator,,,,Reanimated SAM (#4); Wire (#31); Steel Pipe (#25),,110
+46,Ficsite Trigon,10,Constructor,Ficsite Trigon,,yes,,Ficsite Ingot (#40),,40
+47,Screws,8,Constructor,Alternate: Steel Screws,yes,,,Steel Beam (#35),,32
+48,Automated Wiring,2,Assembler,Automated Wiring,,,,Stator (#42); Cable (#38),,30
+49,Electromagnetic Control Rod,5,Assembler,Electromagnetic Control Rod,,,,Stator (#42); AI Limiter (#36),,75
+50,Encased Industrial Beam,3,Assembler,Encased Industrial Beam,,,,Steel Beam (#35); Concrete (#28),,45
+51,Heat Sink,1,Assembler,Alternate: Heat Exchanger,yes,,,Aluminum Casing (#33); Rubber (#21),,15
+52,Computer,15,Manufacturer,Computer,,,,Circuit Board (#27); Cable (#38); Plastic (#16),,825
+53,Crystal Oscillator,15,Manufacturer,Alternate: Insulated Crystal Oscillator,yes,,,Quartz Crystal (#9); Rubber (#21); AI Limiter (#36),,825
+54,Battery,3,Manufacturer,Alternate: Classic Battery,yes,,,Sulfur; Alclad Aluminum Sheet (#37); Plastic (#16); Wire (#31),,165
+55,Power Shard,4,Quantum Encoder,Synthetic Power Shard,,yes,,Time Crystal (#26); Dark Matter Crystal (#39); Quartz Crystal (#9); Excited Photonic Matter (#1),Dark Matter Residue,4000.0
+56,Ionized Fuel,3,Refinery,Ionized Fuel,,yes,,Rocket Fuel (#41); Power Shard (#55),Compacted Coal,90
+57,Modular Frame,7,Assembler,Alternate: Bolted Frame,yes,,,Reinforced Iron Plate (#30); Screws (#47),,105
+58,Rotor,1,Assembler,Alternate: Copper Rotor,yes,,,Copper Sheet (#15); Screws (#47),,15
+59,Radio Control Unit,4,Manufacturer,Radio Control Unit,,,,Aluminum Casing (#33); Crystal Oscillator (#53); Computer (#52),,220
+60,Supercomputer,3,Manufacturer,Alternate: Super-State Computer,yes,,,Computer (#52); Electromagnetic Control Rod (#49); Battery (#54); Wire (#31),,165
+61,Superposition Oscillator,4,Quantum Encoder,Superposition Oscillator,,yes,,Dark Matter Crystal (#39); Crystal Oscillator (#53); Alclad Aluminum Sheet (#37); Excited Photonic Matter (#1),Dark Matter Residue,4000.0
+62,Packaged Ionized Fuel,1,Packager,Packaged Ionized Fuel,,yes,,Ionized Fuel (#56); Empty Fluid Tank (#34),,10
+63,Motor,1,Manufacturer,Alternate: Rigor Motor,yes,,,Rotor (#58); Stator (#42); Crystal Oscillator (#53),,55
+64,Smart Plating,1,Manufacturer,Alternate: Plastic Smart Plating,yes,,,Reinforced Iron Plate (#30); Rotor (#58); Plastic (#16),,55
+65,Versatile Framework,1,Manufacturer,Alternate: Flexible Framework,yes,,,Modular Frame (#57); Steel Beam (#35); Rubber (#21),,55
+66,Alien Power Matrix,1,Quantum Encoder,Alien Power Matrix,,yes,,SAM Fluctuator (#45); Power Shard (#55); Superposition Oscillator (#61); Excited Photonic Matter (#1),Dark Matter Residue,1000.0
+67,Heavy Modular Frame,1,Manufacturer,Alternate: Heavy Flexible Frame,yes,,,Modular Frame (#57); Encased Industrial Beam (#50); Rubber (#21); Screws (#47),,55
+68,Neural-Quantum Processor,3,Quantum Encoder,Neural-Quantum Processor,,yes,,Time Crystal (#26); Supercomputer (#60); Ficsite Trigon (#46); Excited Photonic Matter (#1),Dark Matter Residue,3000.0
+69,Uranium Fuel Rod,2,Manufacturer,Alternate: Uranium Fuel Unit,yes,,,Encased Uranium Cell (#43); Electromagnetic Control Rod (#49); Crystal Oscillator (#53); Rotor (#58),,110
+70,Magnetic Field Generator,4,Assembler,Magnetic Field Generator,,,,Versatile Framework (#65); Electromagnetic Control Rod (#49),,60
+71,Uranium Waste,5,Nuclear Power Plant,Burn Uranium Fuel Rod,,,,Uranium Fuel Rod (#69); Water,,-12500
+72,Cooling System,1,Blender,Alternate: Cooling Device,yes,,,Heat Sink (#51); Motor (#63); Nitrogen Gas,,75
+73,Modular Engine,2,Manufacturer,Modular Engine,,,,Motor (#63); Rubber (#21); Smart Plating (#64),,110
+74,Adaptive Control Unit,1,Manufacturer,Adaptive Control Unit,,,,Automated Wiring (#48); Circuit Board (#27); Heavy Modular Frame (#67); Computer (#52),,55
+75,Fused Modular Frame,2,Blender,Alternate: Heat-Fused Frame,yes,,,Heavy Modular Frame (#67); Aluminum Ingot (#24); Nitric Acid (#32); Fuel (#13),,150
+76,Assembly Director System,1,Assembler,Assembly Director System,,,,Adaptive Control Unit (#74); Supercomputer (#60),,15
+77,Pressure Conversion Cube,5,Assembler,Pressure Conversion Cube,,,,Fused Modular Frame (#75); Radio Control Unit (#59),,75
+78,AI Expansion Server,1,Quantum Encoder,AI Expansion Server,,yes,,Magnetic Field Generator (#70); Neural-Quantum Processor (#68); Superposition Oscillator (#61); Excited Photonic Matter (#1),Dark Matter Residue,1000.0
+79,Non-Fissile Uranium,2,Blender,Alternate: Fertile Uranium,yes,,,Uranium; Uranium Waste (#71); Nitric Acid (#32); Sulfuric Acid (#10),Water,150
+80,Thermal Propulsion Rocket,1,Manufacturer,Thermal Propulsion Rocket,,,,Modular Engine (#73); Turbo Motor (bus); Cooling System (#72); Fused Modular Frame (#75),,55
+81,Encased Plutonium Cell,3,Particle Accelerator,Alternate: Instant Plutonium Cell,yes,,,Non-Fissile Uranium (#79); Aluminum Casing (#33),,1500.0
+82,Nuclear Pasta,6,Particle Accelerator,Nuclear Pasta,,,,Copper Powder (#11); Pressure Conversion Cube (#77),,6000.0
+83,Biochemical Sculptor,1,Blender,Biochemical Sculptor,,yes,,Assembly Director System (#76); Ficsite Trigon (#46); Water,,1000.0
+84,Plutonium Fuel Rod,3,Assembler,Alternate: Plutonium Fuel Unit,yes,,,Encased Plutonium Cell (#81); Pressure Conversion Cube (#77),,45
+85,Singularity Cell,3,Manufacturer,Singularity Cell,,yes,,Nuclear Pasta (#82); Dark Matter Crystal (#39); Iron Plate (#20); Concrete (#28),,165
+86,Plutonium Waste,15,Nuclear Power Plant,Burn Plutonium Fuel Rod,,,,Plutonium Fuel Rod (#84); Water,,-37500
+87,Ballistic Warp Drive,1,Manufacturer,Ballistic Warp Drive,,yes,,Thermal Propulsion Rocket (#80); Singularity Cell (#85); Superposition Oscillator (#61); Dark Matter Crystal (#39),,1000.0
+88,Ficsonium,2,Particle Accelerator,Ficsonium,,yes,,Plutonium Waste (#86); Singularity Cell (#85); Dark Matter Residue (#12),,2000.0
+89,Ficsonium Fuel Rod,1,Quantum Encoder,Ficsonium Fuel Rod,,yes,,Ficsonium (#88); Electromagnetic Control Rod (#49); Ficsite Trigon (#46); Excited Photonic Matter (#1),Dark Matter Residue,1000.0

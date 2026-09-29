@@ -1,0 +1,8 @@
+step,item,new_machines,building,recipe,alternate,excess_target,sink_disposal,inputs,byproducts,mw
+1,Caterium Ingot,1,Smelter,Caterium Ingot,,,,Caterium Ore,,4
+2,Iron Ingot,1,Smelter,Iron Ingot,,,,Iron Ore,,4
+3,Quartz Crystal,1,Constructor,Quartz Crystal,,yes,,Raw Quartz,,4
+4,Silica,1,Constructor,Silica,,yes,,Raw Quartz,,4
+5,Iron Rod,1,Constructor,Iron Rod,,,,Iron Ingot (#2),,4
+6,Quickwire,1,Constructor,Quickwire,,yes,,Caterium Ingot (#1),,4
+7,Iron Rebar,1,Constructor,Iron Rebar,,yes,,Iron Rod (#5),,4

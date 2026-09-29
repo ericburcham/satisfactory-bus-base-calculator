@@ -1,0 +1,290 @@
+TIER 9 - NEW CAPACITY (build top to bottom; whole machines at 100% clock)
+
+New items this tier (one excess machine each):
+    AI Expansion Server                     4.00/min excess  via AI Expansion Server
+    Alien Power Matrix                      2.50/min excess  via Alien Power Matrix
+    Ballistic Warp Drive                    1.00/min excess  via Ballistic Warp Drive
+    Biochemical Sculptor                    2.00/min excess  via Biochemical Sculptor
+    Dark Matter Crystal                    60.00/min excess  via Alternate: Dark Matter Trap  [ALTERNATE]
+    Dark Matter Residue                   100.00/min excess  via Dark Matter Residue
+    Diamonds                               30.00/min excess  via Alternate: Petroleum Diamonds  [ALTERNATE]
+    Excited Photonic Matter               200.00/min excess  via Excited Photonic Matter
+    Ficsite Trigon                         30.00/min excess  via Ficsite Trigon
+    Ficsonium                              10.00/min excess  via Ficsonium
+    Ficsonium Fuel Rod                      2.50/min excess  via Ficsonium Fuel Rod
+    Ionized Fuel                           40.00/min excess  via Ionized Fuel
+    Neural-Quantum Processor                3.00/min excess  via Neural-Quantum Processor
+    Packaged Ionized Fuel                  40.00/min excess  via Packaged Ionized Fuel
+    Power Shard                             5.00/min excess  via Synthetic Power Shard
+    Singularity Cell                       10.00/min excess  via Singularity Cell
+    Superposition Oscillator                5.00/min excess  via Superposition Oscillator
+    Time Crystal                            6.00/min excess  via Time Crystal
+
+Build order:
+   1. Excited Photonic Matter           7 x Converter              Excited Photonic Matter
+          inputs: (no inputs)
+   2. Heavy Oil Residue               140 x Refinery               Alternate: Heavy Oil Residue  [ALTERNATE]
+          inputs: Crude Oil
+          byproducts: Polymer Resin
+   3. Polymer Resin                    18 x Refinery               Alternate: Polymer Resin  [ALTERNATE]
+          inputs: Crude Oil
+          byproducts: Heavy Oil Residue
+   4. Reanimated SAM                   11 x Constructor            Reanimated SAM
+          inputs: SAM
+   5. Silica                            1 x Constructor            Silica
+          inputs: Raw Quartz
+   6. Alumina Solution                  7 x Refinery               Alternate: Sloppy Alumina  [ALTERNATE]
+          inputs: Bauxite, Water
+   7. Copper Ingot                    112 x Refinery               Alternate: Pure Copper Ingot  [ALTERNATE]
+          inputs: Copper Ore, Water
+   8. Iron Ingot                        4 x Refinery               Alternate: Pure Iron Ingot  [ALTERNATE]
+          inputs: Iron Ore, Water
+   9. Quartz Crystal                   10 x Refinery               Alternate: Pure Quartz Crystal  [ALTERNATE]
+          inputs: Raw Quartz, Water
+  10. Sulfuric Acid                     2 x Refinery               Sulfuric Acid
+          inputs: Sulfur, Water
+  11. Copper Powder                    12 x Constructor            Copper Powder
+          inputs: Copper Ingot (#7)
+  12. Dark Matter Residue               1 x Converter              Dark Matter Residue
+          inputs: Reanimated SAM (#4)
+  13. Fuel                             19 x Refinery               Residual Fuel
+          inputs: Heavy Oil Residue (#2)
+  14. Petroleum Coke                  119 x Refinery               Petroleum Coke
+          inputs: Heavy Oil Residue (#2)
+  15. Copper Sheet                      1 x Refinery               Alternate: Steamed Copper Sheet  [ALTERNATE]
+          inputs: Copper Ingot (#7), Water
+  16. Plastic                          85 x Refinery               Residual Plastic
+          inputs: Polymer Resin (#3), Water
+  17. Diamonds                         17 x Particle Accelerator   Alternate: Petroleum Diamonds  [ALTERNATE]
+          inputs: Petroleum Coke (#14)
+  18. Aluminum Scrap                    9 x Refinery               Alternate: Electrode Aluminum Scrap  [ALTERNATE]
+          inputs: Alumina Solution (#6), Petroleum Coke (#14)
+          byproducts: Water
+  19. Caterium Ingot                    4 x Foundry                Alternate: Tempered Caterium Ingot  [ALTERNATE]
+          inputs: Caterium Ore, Petroleum Coke (#14)
+  20. Iron Plate                        7 x Assembler              Alternate: Coated Iron Plate  [ALTERNATE]
+          inputs: Iron Ingot (#8), Plastic (#16)
+  21. Rubber                           23 x Refinery               Alternate: Recycled Rubber  [ALTERNATE]
+          inputs: Plastic (#16), Fuel (#13)
+  22. Steel Ingot                       3 x Foundry                Alternate: Coke Steel Ingot  [ALTERNATE]
+          inputs: Iron Ore, Petroleum Coke (#14)
+  23. Turbofuel                         2 x Blender                Alternate: Turbo Blend Fuel  [ALTERNATE]
+          inputs: Fuel (#13), Heavy Oil Residue (#2), Sulfur, Petroleum Coke (#14)
+  24. Aluminum Ingot                   48 x Smelter                Alternate: Pure Aluminum Ingot
+          inputs: Aluminum Scrap (#18)
+  25. Steel Pipe                        8 x Constructor            Steel Pipe
+          inputs: Steel Ingot (#22)
+  26. Time Crystal                     40 x Converter              Time Crystal
+          inputs: Diamonds (#17)
+  27. Circuit Board                    32 x Assembler              Alternate: Electrode Circuit Board  [ALTERNATE]
+          inputs: Rubber (#21), Petroleum Coke (#14)
+  28. Concrete                          9 x Assembler              Alternate: Rubber Concrete  [ALTERNATE]
+          inputs: Limestone, Rubber (#21)
+  29. Quickwire                         9 x Assembler              Alternate: Fused Quickwire  [ALTERNATE]
+          inputs: Caterium Ingot (#19), Copper Ingot (#7)
+  30. Reinforced Iron Plate            15 x Assembler              Alternate: Adhered Iron Plate  [ALTERNATE]
+          inputs: Iron Plate (#20), Rubber (#21)
+  31. Wire                             10 x Assembler              Alternate: Fused Wire  [ALTERNATE]
+          inputs: Copper Ingot (#7), Caterium Ingot (#19)
+  32. Nitric Acid                       3 x Blender                Nitric Acid
+          inputs: Nitrogen Gas, Water, Iron Plate (#20)
+  33. Aluminum Casing                   4 x Constructor            Aluminum Casing
+          inputs: Aluminum Ingot (#24)
+  34. Empty Fluid Tank                  1 x Constructor            Empty Fluid Tank
+          inputs: Aluminum Ingot (#24)
+  35. Steel Beam                        5 x Constructor            Alternate: Aluminum Beam  [ALTERNATE]
+          inputs: Aluminum Ingot (#24)
+  36. AI Limiter                        7 x Assembler              Alternate: Plastic AI Limiter  [ALTERNATE]
+          inputs: Quickwire (#29), Plastic (#16)
+  37. Alclad Aluminum Sheet            10 x Assembler              Alclad Aluminum Sheet
+          inputs: Aluminum Ingot (#24), Copper Ingot (#7)
+  38. Cable                             4 x Assembler              Alternate: Insulated Cable  [ALTERNATE]
+          inputs: Wire (#31), Rubber (#21)
+  39. Dark Matter Crystal               6 x Particle Accelerator   Alternate: Dark Matter Trap  [ALTERNATE]
+          inputs: Time Crystal (#26), Dark Matter Residue (#12)
+  40. Ficsite Ingot                     4 x Converter              Ficsite Ingot (Aluminum)
+          inputs: Reanimated SAM (#4), Aluminum Ingot (#24)
+  41. Rocket Fuel                       1 x Blender                Rocket Fuel
+          inputs: Turbofuel (#23), Nitric Acid (#32)
+          byproducts: Compacted Coal
+  42. Stator                            8 x Assembler              Stator
+          inputs: Steel Pipe (#25), Wire (#31)
+  43. Encased Uranium Cell              1 x Blender                Encased Uranium Cell
+          inputs: Uranium, Concrete (#28), Sulfuric Acid (#10)
+          byproducts: Sulfuric Acid
+  44. High-Speed Connector              1 x Manufacturer           Alternate: Silicon High-Speed Connector  [ALTERNATE]
+          inputs: Quickwire (#29), Silica (#5), Circuit Board (#27)
+  45. SAM Fluctuator                    2 x Manufacturer           SAM Fluctuator
+          inputs: Reanimated SAM (#4), Wire (#31), Steel Pipe (#25)
+  46. Ficsite Trigon                   10 x Constructor            Ficsite Trigon
+          inputs: Ficsite Ingot (#40)
+  47. Screws                            8 x Constructor            Alternate: Steel Screws  [ALTERNATE]
+          inputs: Steel Beam (#35)
+  48. Automated Wiring                  2 x Assembler              Automated Wiring
+          inputs: Stator (#42), Cable (#38)
+  49. Electromagnetic Control Rod       5 x Assembler              Electromagnetic Control Rod
+          inputs: Stator (#42), AI Limiter (#36)
+  50. Encased Industrial Beam           3 x Assembler              Encased Industrial Beam
+          inputs: Steel Beam (#35), Concrete (#28)
+  51. Heat Sink                         1 x Assembler              Alternate: Heat Exchanger  [ALTERNATE]
+          inputs: Aluminum Casing (#33), Rubber (#21)
+  52. Computer                         15 x Manufacturer           Computer
+          inputs: Circuit Board (#27), Cable (#38), Plastic (#16)
+  53. Crystal Oscillator               15 x Manufacturer           Alternate: Insulated Crystal Oscillator  [ALTERNATE]
+          inputs: Quartz Crystal (#9), Rubber (#21), AI Limiter (#36)
+  54. Battery                           3 x Manufacturer           Alternate: Classic Battery  [ALTERNATE]
+          inputs: Sulfur, Alclad Aluminum Sheet (#37), Plastic (#16), Wire (#31)
+  55. Power Shard                       4 x Quantum Encoder        Synthetic Power Shard
+          inputs: Time Crystal (#26), Dark Matter Crystal (#39), Quartz Crystal (#9), Excited Photonic Matter (#1)
+          byproducts: Dark Matter Residue
+  56. Ionized Fuel                      3 x Refinery               Ionized Fuel
+          inputs: Rocket Fuel (#41), Power Shard (#55)
+          byproducts: Compacted Coal
+  57. Modular Frame                     7 x Assembler              Alternate: Bolted Frame  [ALTERNATE]
+          inputs: Reinforced Iron Plate (#30), Screws (#47)
+  58. Rotor                             1 x Assembler              Alternate: Copper Rotor  [ALTERNATE]
+          inputs: Copper Sheet (#15), Screws (#47)
+  59. Radio Control Unit                4 x Manufacturer           Radio Control Unit
+          inputs: Aluminum Casing (#33), Crystal Oscillator (#53), Computer (#52)
+  60. Supercomputer                     3 x Manufacturer           Alternate: Super-State Computer  [ALTERNATE]
+          inputs: Computer (#52), Electromagnetic Control Rod (#49), Battery (#54), Wire (#31)
+  61. Superposition Oscillator          4 x Quantum Encoder        Superposition Oscillator
+          inputs: Dark Matter Crystal (#39), Crystal Oscillator (#53), Alclad Aluminum Sheet (#37), Excited Photonic Matter (#1)
+          byproducts: Dark Matter Residue
+  62. Packaged Ionized Fuel             1 x Packager               Packaged Ionized Fuel
+          inputs: Ionized Fuel (#56), Empty Fluid Tank (#34)
+  63. Motor                             1 x Manufacturer           Alternate: Rigor Motor  [ALTERNATE]
+          inputs: Rotor (#58), Stator (#42), Crystal Oscillator (#53)
+  64. Smart Plating                     1 x Manufacturer           Alternate: Plastic Smart Plating  [ALTERNATE]
+          inputs: Reinforced Iron Plate (#30), Rotor (#58), Plastic (#16)
+  65. Versatile Framework               1 x Manufacturer           Alternate: Flexible Framework  [ALTERNATE]
+          inputs: Modular Frame (#57), Steel Beam (#35), Rubber (#21)
+  66. Alien Power Matrix                1 x Quantum Encoder        Alien Power Matrix
+          inputs: SAM Fluctuator (#45), Power Shard (#55), Superposition Oscillator (#61), Excited Photonic Matter (#1)
+          byproducts: Dark Matter Residue
+  67. Heavy Modular Frame               1 x Manufacturer           Alternate: Heavy Flexible Frame  [ALTERNATE]
+          inputs: Modular Frame (#57), Encased Industrial Beam (#50), Rubber (#21), Screws (#47)
+  68. Neural-Quantum Processor          3 x Quantum Encoder        Neural-Quantum Processor
+          inputs: Time Crystal (#26), Supercomputer (#60), Ficsite Trigon (#46), Excited Photonic Matter (#1)
+          byproducts: Dark Matter Residue
+  69. Uranium Fuel Rod                  2 x Manufacturer           Alternate: Uranium Fuel Unit  [ALTERNATE]
+          inputs: Encased Uranium Cell (#43), Electromagnetic Control Rod (#49), Crystal Oscillator (#53), Rotor (#58)
+  70. Magnetic Field Generator          4 x Assembler              Magnetic Field Generator
+          inputs: Versatile Framework (#65), Electromagnetic Control Rod (#49)
+  71. Uranium Waste                     5 x Nuclear Power Plant    Burn Uranium Fuel Rod
+          inputs: Uranium Fuel Rod (#69), Water
+  72. Cooling System                    1 x Blender                Alternate: Cooling Device  [ALTERNATE]
+          inputs: Heat Sink (#51), Motor (#63), Nitrogen Gas
+  73. Modular Engine                    2 x Manufacturer           Modular Engine
+          inputs: Motor (#63), Rubber (#21), Smart Plating (#64)
+  74. Adaptive Control Unit             1 x Manufacturer           Adaptive Control Unit
+          inputs: Automated Wiring (#48), Circuit Board (#27), Heavy Modular Frame (#67), Computer (#52)
+  75. Fused Modular Frame               2 x Blender                Alternate: Heat-Fused Frame  [ALTERNATE]
+          inputs: Heavy Modular Frame (#67), Aluminum Ingot (#24), Nitric Acid (#32), Fuel (#13)
+  76. Assembly Director System          1 x Assembler              Assembly Director System
+          inputs: Adaptive Control Unit (#74), Supercomputer (#60)
+  77. Pressure Conversion Cube          5 x Assembler              Pressure Conversion Cube
+          inputs: Fused Modular Frame (#75), Radio Control Unit (#59)
+  78. AI Expansion Server               1 x Quantum Encoder        AI Expansion Server
+          inputs: Magnetic Field Generator (#70), Neural-Quantum Processor (#68), Superposition Oscillator (#61), Excited Photonic Matter (#1)
+          byproducts: Dark Matter Residue
+  79. Non-Fissile Uranium               2 x Blender                Alternate: Fertile Uranium  [ALTERNATE]
+          inputs: Uranium, Uranium Waste (#71), Nitric Acid (#32), Sulfuric Acid (#10)
+          byproducts: Water
+  80. Thermal Propulsion Rocket         1 x Manufacturer           Thermal Propulsion Rocket
+          inputs: Modular Engine (#73), Turbo Motor (bus), Cooling System (#72), Fused Modular Frame (#75)
+  81. Encased Plutonium Cell            3 x Particle Accelerator   Alternate: Instant Plutonium Cell  [ALTERNATE]
+          inputs: Non-Fissile Uranium (#79), Aluminum Casing (#33)
+  82. Nuclear Pasta                     6 x Particle Accelerator   Nuclear Pasta
+          inputs: Copper Powder (#11), Pressure Conversion Cube (#77)
+  83. Biochemical Sculptor              1 x Blender                Biochemical Sculptor
+          inputs: Assembly Director System (#76), Ficsite Trigon (#46), Water
+  84. Plutonium Fuel Rod                3 x Assembler              Alternate: Plutonium Fuel Unit  [ALTERNATE]
+          inputs: Encased Plutonium Cell (#81), Pressure Conversion Cube (#77)
+  85. Singularity Cell                  3 x Manufacturer           Singularity Cell
+          inputs: Nuclear Pasta (#82), Dark Matter Crystal (#39), Iron Plate (#20), Concrete (#28)
+  86. Plutonium Waste                  15 x Nuclear Power Plant    Burn Plutonium Fuel Rod
+          inputs: Plutonium Fuel Rod (#84), Water
+  87. Ballistic Warp Drive              1 x Manufacturer           Ballistic Warp Drive
+          inputs: Thermal Propulsion Rocket (#80), Singularity Cell (#85), Superposition Oscillator (#61), Dark Matter Crystal (#39)
+  88. Ficsonium                         2 x Particle Accelerator   Ficsonium
+          inputs: Plutonium Waste (#86), Singularity Cell (#85), Dark Matter Residue (#12)
+  89. Ficsonium Fuel Rod                1 x Quantum Encoder        Ficsonium Fuel Rod
+          inputs: Ficsonium (#88), Electromagnetic Control Rod (#49), Ficsite Trigon (#46), Excited Photonic Matter (#1)
+          byproducts: Dark Matter Residue
+
+New machines this tier: 1001   power used: 76,239.0 MW at 100% clock   power generated: 50,000 MW (nuclear)
+
+Spare capacity from earlier tiers now put to work (machines' worth):
+    Fuel                                    0.99
+    Steel Beam                              0.90
+    Wire                                    0.89
+    Heavy Oil Residue                       0.86
+    Radio Control Unit                      0.82
+    Rocket Fuel                             0.80
+    Encased Uranium Cell                    0.80
+    Electromagnetic Control Rod             0.79
+    Stator                                  0.75
+    Uranium Waste                           0.75
+    Alumina Solution                        0.74
+    Reinforced Iron Plate                   0.73
+    Heavy Modular Frame                     0.73
+    Cable                                   0.72
+    Quickwire                               0.69
+    Caterium Ingot                          0.68
+    Rubber                                  0.68
+    Versatile Framework                     0.67
+    Aluminum Scrap                          0.65
+    Copper Ingot                            0.64
+    Computer                                0.62
+    Steel Pipe                              0.62
+    Supercomputer                           0.60
+    Smart Plating                           0.60
+    Modular Frame                           0.60
+    Nitric Acid                             0.58
+    Encased Industrial Beam                 0.54
+    High-Speed Connector                    0.54
+    Modular Engine                          0.50
+    Adaptive Control Unit                   0.50
+    Empty Fluid Tank                        0.50
+    Non-Fissile Uranium                     0.50
+    Rotor                                   0.46
+    Heat Sink                               0.40
+    Cooling System                          0.40
+    Crystal Oscillator                      0.39
+    Iron Plate                              0.38
+    Turbo Motor                             0.36
+    Petroleum Coke                          0.35
+    Motor                                   0.35
+    Iron Ingot                              0.34
+    Sulfuric Acid                           0.33
+    Aluminum Casing                         0.27
+    Alclad Aluminum Sheet                   0.25
+    Uranium Fuel Rod                        0.25
+    Aluminum Ingot                          0.24
+    Copper Sheet                            0.24
+    Plastic                                 0.22
+    Steel Ingot                             0.20
+    Concrete                                0.19
+    Polymer Resin                           0.18
+    Silica                                  0.14
+    Quartz Crystal                          0.14
+    Turbofuel                               0.12
+    AI Limiter                              0.11
+    Circuit Board                           0.07
+    Screws                                  0.02
+
+Raw input for the whole bus after this tier:
+    Bauxite                               3,298.55/min
+    Caterium Ore                            622.76/min
+    Coal                                    218.78/min
+    Copper Ore                            2,584.13/min
+    Crude Oil                             9,021.45/min
+    Iron Ore                              1,273.91/min
+    Limestone                             1,207.22/min
+    Nitrogen Gas                          1,501.00/min
+    Raw Quartz                            1,134.57/min
+    SAM                                   1,453.33/min
+    Sulfur                                  878.79/min
+    Uranium                                 478.75/min
+    Water                                15,328.07/min

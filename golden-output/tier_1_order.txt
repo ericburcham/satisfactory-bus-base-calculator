@@ -1,0 +1,36 @@
+TIER 1 - NEW CAPACITY (build top to bottom; whole machines at 100% clock)
+
+New items this tier (one excess machine each):
+    Iron Rebar                             15.00/min excess  via Iron Rebar
+    Quartz Crystal                         22.50/min excess  via Quartz Crystal
+    Quickwire                              60.00/min excess  via Quickwire
+    Silica                                 37.50/min excess  via Silica
+
+Build order:
+   1. Caterium Ingot                    1 x Smelter                Caterium Ingot
+          inputs: Caterium Ore
+   2. Iron Ingot                        1 x Smelter                Iron Ingot
+          inputs: Iron Ore
+   3. Quartz Crystal                    1 x Constructor            Quartz Crystal
+          inputs: Raw Quartz
+   4. Silica                            1 x Constructor            Silica
+          inputs: Raw Quartz
+   5. Iron Rod                          1 x Constructor            Iron Rod
+          inputs: Iron Ingot (#2)
+   6. Quickwire                         1 x Constructor            Quickwire
+          inputs: Caterium Ingot (#1)
+   7. Iron Rebar                        1 x Constructor            Iron Rebar
+          inputs: Iron Rod (#5)
+
+New machines this tier: 7   power used: 28.0 MW at 100% clock
+
+Spare capacity from earlier tiers now put to work (machines' worth):
+    Iron Rod                                0.33
+    Iron Ingot                              0.17
+
+Raw input for the whole bus after this tier:
+    Caterium Ore                             36.00/min
+    Copper Ore                               45.00/min
+    Iron Ore                                 70.00/min
+    Limestone                                45.00/min
+    Raw Quartz                               60.00/min

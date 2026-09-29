@@ -1,0 +1,22 @@
+digraph tier {
+  rankdir=LR; node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10, fillcolor="#ffffff"];
+  edge [color="#888888", arrowsize=0.6];
+  labelloc=t; label="Tier 1: 7 new machines"; fontsize=18;
+  "Recipe_IngotCaterium_C" [label="#1 Caterium Ingot\n1 x Smelter\nCaterium Ingot"];
+  "in_Desc_OreGold_C" -> "Recipe_IngotCaterium_C";
+  "Recipe_IngotIron_C" [label="#2 Iron Ingot\n1 x Smelter\nIron Ingot"];
+  "in_Desc_OreIron_C" -> "Recipe_IngotIron_C";
+  "Recipe_QuartzCrystal_C" [label="#3 Quartz Crystal\n1 x Constructor\nQuartz Crystal", penwidth=2.5, color="#2a7a2a"];
+  "in_Desc_RawQuartz_C" -> "Recipe_QuartzCrystal_C";
+  "Recipe_Silica_C" [label="#4 Silica\n1 x Constructor\nSilica", penwidth=2.5, color="#2a7a2a"];
+  "in_Desc_RawQuartz_C" -> "Recipe_Silica_C";
+  "Recipe_IronRod_C" [label="#5 Iron Rod\n1 x Constructor\nIron Rod"];
+  "Recipe_IngotIron_C" -> "Recipe_IronRod_C";
+  "Recipe_Quickwire_C" [label="#6 Quickwire\n1 x Constructor\nQuickwire", penwidth=2.5, color="#2a7a2a"];
+  "Recipe_IngotCaterium_C" -> "Recipe_Quickwire_C";
+  "Recipe_SpikedRebar_C" [label="#7 Iron Rebar\n1 x Constructor\nIron Rebar", penwidth=2.5, color="#2a7a2a"];
+  "Recipe_IronRod_C" -> "Recipe_SpikedRebar_C";
+  "in_Desc_OreIron_C" [label="Iron Ore\n(raw)", shape=ellipse, fillcolor="#eeeeee"];
+  "in_Desc_OreGold_C" [label="Caterium Ore\n(raw)", shape=ellipse, fillcolor="#eeeeee"];
+  "in_Desc_RawQuartz_C" [label="Raw Quartz\n(raw)", shape=ellipse, fillcolor="#eeeeee"];
+}

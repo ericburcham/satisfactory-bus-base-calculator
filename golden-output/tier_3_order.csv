@@ -1,0 +1,16 @@
+step,item,new_machines,building,recipe,alternate,excess_target,sink_disposal,inputs,byproducts,mw
+1,Caterium Ingot,1,Smelter,Caterium Ingot,,,,Caterium Ore,,4
+2,Copper Ingot,1,Smelter,Copper Ingot,,,,Copper Ore,,4
+3,Compacted Coal,3,Assembler,Alternate: Compacted Coal,yes,,,Coal; Sulfur,,45
+4,Black Powder,1,Assembler,Alternate: Fine Black Powder,yes,,,Sulfur; Compacted Coal (#3),,15
+5,Steel Ingot,26,Foundry,Alternate: Compacted Steel Ingot,yes,,,Iron Ore; Compacted Coal (#3),,416
+6,Wire,1,Assembler,Alternate: Fused Wire,yes,,,Copper Ingot (#2); Caterium Ingot (#1),,15
+7,Iron Rod,1,Constructor,Alternate: Steel Rod,yes,,,Steel Ingot (#5),,4
+8,Steel Beam,3,Constructor,Steel Beam,,yes,,Steel Ingot (#5),,12
+9,Steel Pipe,3,Constructor,Steel Pipe,,yes,,Steel Ingot (#5),,12
+10,Iron Plate,1,Foundry,Alternate: Steel Cast Plate,yes,,,Iron Ingot (bus); Steel Ingot (#5),,16
+11,Nobelisk,1,Assembler,Nobelisk,,yes,,Black Powder (#4); Steel Pipe (#9),,15
+12,Portable Miner,1,Assembler,Alternate: Automated Miner,yes,yes,,Steel Pipe (#9); Iron Plate (#10),,15
+13,Reinforced Iron Plate,1,Assembler,Alternate: Stitched Iron Plate,yes,,,Iron Plate (#10); Wire (#6),,15
+14,Modular Frame,2,Assembler,Modular Frame,,,,Reinforced Iron Plate (#13); Iron Rod (#7),,30
+15,Versatile Framework,1,Assembler,Versatile Framework,,yes,,Modular Frame (#14); Steel Beam (#8),,15

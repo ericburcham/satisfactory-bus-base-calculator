@@ -1,0 +1,72 @@
+TIER 2 - NEW CAPACITY (build top to bottom; whole machines at 100% clock)
+
+New items this tier (one excess machine each):
+    AI Limiter                              5.00/min excess  via AI Limiter
+    Black Powder                           45.00/min excess  via Alternate: Fine Black Powder  [ALTERNATE]
+    Compacted Coal                         25.00/min excess  via Alternate: Compacted Coal  [ALTERNATE]
+    Copper Sheet                           10.00/min excess  via Copper Sheet
+    Modular Frame                           2.00/min excess  via Modular Frame
+    Reinforced Iron Plate                   5.62/min excess  via Alternate: Stitched Iron Plate  [ALTERNATE]
+    Rotor                                  11.25/min excess  via Alternate: Copper Rotor  [ALTERNATE]
+    Shatter Rebar                           5.00/min excess  via Shatter Rebar
+    Smart Plating                           2.00/min excess  via Smart Plating
+    Stun Rebar                             10.00/min excess  via Stun Rebar
+
+Build order:
+   1. Caterium Ingot                    2 x Smelter                Caterium Ingot
+          inputs: Caterium Ore
+   2. Copper Ingot                      4 x Smelter                Copper Ingot
+          inputs: Copper Ore
+   3. Iron Ingot                        5 x Smelter                Iron Ingot
+          inputs: Iron Ore
+   4. Quartz Crystal                    1 x Constructor            Quartz Crystal
+          inputs: Raw Quartz
+   5. Compacted Coal                    2 x Assembler              Alternate: Compacted Coal  [ALTERNATE]
+          inputs: Coal, Sulfur
+   6. Copper Sheet                      7 x Constructor            Copper Sheet
+          inputs: Copper Ingot (#2)
+   7. Iron Plate                        2 x Constructor            Iron Plate
+          inputs: Iron Ingot (#3)
+   8. Iron Rod                          6 x Constructor            Iron Rod
+          inputs: Iron Ingot (#3)
+   9. Quickwire                         3 x Constructor            Quickwire
+          inputs: Caterium Ingot (#1)
+  10. Black Powder                      1 x Assembler              Alternate: Fine Black Powder  [ALTERNATE]
+          inputs: Sulfur, Compacted Coal (#5)
+  11. Wire                              1 x Assembler              Alternate: Fused Wire  [ALTERNATE]
+          inputs: Copper Ingot (#2), Caterium Ingot (#1)
+  12. Iron Rebar                        2 x Constructor            Iron Rebar
+          inputs: Iron Rod (#8)
+  13. Screws                            6 x Constructor            Screws
+          inputs: Iron Rod (#8)
+  14. AI Limiter                        1 x Assembler              AI Limiter
+          inputs: Copper Sheet (#6), Quickwire (#9)
+  15. Reinforced Iron Plate             2 x Assembler              Alternate: Stitched Iron Plate  [ALTERNATE]
+          inputs: Iron Plate (#7), Wire (#11)
+  16. Modular Frame                     1 x Assembler              Modular Frame
+          inputs: Reinforced Iron Plate (#15), Iron Rod (#8)
+  17. Rotor                             2 x Assembler              Alternate: Copper Rotor  [ALTERNATE]
+          inputs: Copper Sheet (#6), Screws (#13)
+  18. Shatter Rebar                     1 x Assembler              Shatter Rebar
+          inputs: Iron Rebar (#12), Quartz Crystal (#4)
+  19. Stun Rebar                        1 x Assembler              Stun Rebar
+          inputs: Iron Rebar (#12), Quickwire (#9)
+  20. Smart Plating                     1 x Assembler              Smart Plating
+          inputs: Reinforced Iron Plate (#15), Rotor (#17)
+
+New machines this tier: 51   power used: 347.0 MW at 100% clock
+
+Spare capacity from earlier tiers now put to work (machines' worth):
+    Iron Ingot                              0.67
+    Copper Ingot                            0.50
+    Iron Rod                                0.33
+    Caterium Ingot                          0.20
+
+Raw input for the whole bus after this tier:
+    Caterium Ore                            133.08/min
+    Coal                                     40.00/min
+    Copper Ore                              177.44/min
+    Iron Ore                                212.54/min
+    Limestone                                45.00/min
+    Raw Quartz                               85.00/min
+    Sulfur                                   47.50/min

@@ -1,0 +1,21 @@
+step,item,new_machines,building,recipe,alternate,excess_target,sink_disposal,inputs,byproducts,mw
+1,Caterium Ingot,2,Smelter,Caterium Ingot,,,,Caterium Ore,,8
+2,Copper Ingot,4,Smelter,Copper Ingot,,,,Copper Ore,,16
+3,Iron Ingot,5,Smelter,Iron Ingot,,,,Iron Ore,,20
+4,Quartz Crystal,1,Constructor,Quartz Crystal,,,,Raw Quartz,,4
+5,Compacted Coal,2,Assembler,Alternate: Compacted Coal,yes,yes,,Coal; Sulfur,,30
+6,Copper Sheet,7,Constructor,Copper Sheet,,yes,,Copper Ingot (#2),,28
+7,Iron Plate,2,Constructor,Iron Plate,,,,Iron Ingot (#3),,8
+8,Iron Rod,6,Constructor,Iron Rod,,,,Iron Ingot (#3),,24
+9,Quickwire,3,Constructor,Quickwire,,,,Caterium Ingot (#1),,12
+10,Black Powder,1,Assembler,Alternate: Fine Black Powder,yes,yes,,Sulfur; Compacted Coal (#5),,15
+11,Wire,1,Assembler,Alternate: Fused Wire,yes,,,Copper Ingot (#2); Caterium Ingot (#1),,15
+12,Iron Rebar,2,Constructor,Iron Rebar,,,,Iron Rod (#8),,8
+13,Screws,6,Constructor,Screws,,,,Iron Rod (#8),,24
+14,AI Limiter,1,Assembler,AI Limiter,,yes,,Copper Sheet (#6); Quickwire (#9),,15
+15,Reinforced Iron Plate,2,Assembler,Alternate: Stitched Iron Plate,yes,yes,,Iron Plate (#7); Wire (#11),,30
+16,Modular Frame,1,Assembler,Modular Frame,,yes,,Reinforced Iron Plate (#15); Iron Rod (#8),,15
+17,Rotor,2,Assembler,Alternate: Copper Rotor,yes,yes,,Copper Sheet (#6); Screws (#13),,30
+18,Shatter Rebar,1,Assembler,Shatter Rebar,,yes,,Iron Rebar (#12); Quartz Crystal (#4),,15
+19,Stun Rebar,1,Assembler,Stun Rebar,,yes,,Iron Rebar (#12); Quickwire (#9),,15
+20,Smart Plating,1,Assembler,Smart Plating,,yes,,Reinforced Iron Plate (#15); Rotor (#17),,15

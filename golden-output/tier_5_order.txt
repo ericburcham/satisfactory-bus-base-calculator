@@ -1,0 +1,91 @@
+TIER 5 - NEW CAPACITY (build top to bottom; whole machines at 100% clock)
+
+New items this tier (one excess machine each):
+    Circuit Board                           5.00/min excess  via Alternate: Electrode Circuit Board  [ALTERNATE]
+    Cluster Nobelisk                        2.50/min excess  via Cluster Nobelisk
+    Empty Canister                         60.00/min excess  via Empty Canister
+    Fabric                                 30.00/min excess  via Alternate: Polyester Fabric  [ALTERNATE]
+    Fuel                                   40.00/min excess  via Residual Fuel
+    Heavy Oil Residue                      40.00/min excess  via Alternate: Heavy Oil Residue  [ALTERNATE]
+    Packaged Fuel                          40.00/min excess  via Packaged Fuel
+    Packaged Heavy Oil Residue             30.00/min excess  via Packaged Heavy Oil Residue
+    Packaged Oil                           30.00/min excess  via Packaged Oil
+    Packaged Turbofuel                     20.00/min excess  via Packaged Turbofuel
+    Packaged Water                         60.00/min excess  via Packaged Water
+    Petroleum Coke                        120.00/min excess  via Petroleum Coke
+    Plastic                                20.00/min excess  via Residual Plastic
+    Polymer Resin                         130.00/min excess  via Alternate: Polymer Resin  [ALTERNATE]
+    Rifle Ammo                             75.00/min excess  via Rifle Ammo
+    Rubber                                 60.00/min excess  via Alternate: Recycled Rubber  [ALTERNATE]
+    Smokeless Powder                       20.00/min excess  via Smokeless Powder
+    Turbofuel                              18.75/min excess  via Turbofuel  [ALTERNATE]
+
+Build order:
+   1. Heavy Oil Residue                 8 x Refinery               Alternate: Heavy Oil Residue  [ALTERNATE]
+          inputs: Crude Oil
+          byproducts: Polymer Resin
+   2. Polymer Resin                     5 x Refinery               Alternate: Polymer Resin  [ALTERNATE]
+          inputs: Crude Oil
+          byproducts: Heavy Oil Residue
+   3. Compacted Coal                    2 x Assembler              Alternate: Compacted Coal  [ALTERNATE]
+          inputs: Coal, Sulfur
+   4. Copper Sheet                      1 x Refinery               Alternate: Steamed Copper Sheet  [ALTERNATE]
+          inputs: Copper Ingot (bus), Water
+   5. Fuel                              5 x Refinery               Residual Fuel
+          inputs: Heavy Oil Residue (#1)
+   6. Petroleum Coke                    2 x Refinery               Petroleum Coke
+          inputs: Heavy Oil Residue (#1)
+   7. Black Powder                      1 x Assembler              Alternate: Fine Black Powder  [ALTERNATE]
+          inputs: Sulfur, Compacted Coal (#3)
+   8. Fabric                            1 x Refinery               Alternate: Polyester Fabric  [ALTERNATE]
+          inputs: Polymer Resin (#2), Water
+   9. Plastic                           9 x Refinery               Residual Plastic
+          inputs: Polymer Resin (#2), Water
+  10. Empty Canister                    4 x Constructor            Empty Canister
+          inputs: Plastic (#9)
+  11. Nobelisk                          1 x Assembler              Nobelisk
+          inputs: Black Powder (#7), Steel Pipe (bus)
+  12. Rubber                            2 x Refinery               Alternate: Recycled Rubber  [ALTERNATE]
+          inputs: Plastic (#9), Fuel (#5)
+  13. Smokeless Powder                  2 x Refinery               Smokeless Powder
+          inputs: Black Powder (#7), Heavy Oil Residue (#1)
+  14. Steel Ingot                       1 x Foundry                Alternate: Coke Steel Ingot  [ALTERNATE]
+          inputs: Iron Ore, Petroleum Coke (#6)
+  15. Turbofuel                         3 x Refinery               Turbofuel  [ALTERNATE]
+          inputs: Fuel (#5), Compacted Coal (#3)
+  16. Circuit Board                     1 x Assembler              Alternate: Electrode Circuit Board  [ALTERNATE]
+          inputs: Rubber (#12), Petroleum Coke (#6)
+  17. Cluster Nobelisk                  1 x Assembler              Cluster Nobelisk
+          inputs: Nobelisk (#11), Smokeless Powder (#13)
+  18. Packaged Fuel                     1 x Packager               Packaged Fuel
+          inputs: Fuel (#5), Empty Canister (#10)
+  19. Packaged Heavy Oil Residue        1 x Packager               Packaged Heavy Oil Residue
+          inputs: Heavy Oil Residue (#1), Empty Canister (#10)
+  20. Packaged Oil                      1 x Packager               Packaged Oil
+          inputs: Crude Oil, Empty Canister (#10)
+  21. Packaged Turbofuel                1 x Packager               Packaged Turbofuel
+          inputs: Turbofuel (#15), Empty Canister (#10)
+  22. Packaged Water                    1 x Packager               Packaged Water
+          inputs: Water, Empty Canister (#10)
+  23. Rifle Ammo                        1 x Assembler              Rifle Ammo
+          inputs: Copper Sheet (#4), Smokeless Powder (#13)
+
+New machines this tier: 55   power used: 1,327.0 MW at 100% clock
+
+Spare capacity from earlier tiers now put to work (machines' worth):
+    Steel Pipe                              0.75
+    Black Powder                            0.56
+    Copper Ingot                            0.50
+    Compacted Coal                          0.34
+    Steel Ingot                             0.08
+
+Raw input for the whole bus after this tier:
+    Caterium Ore                            159.58/min
+    Coal                                    191.00/min
+    Copper Ore                              264.78/min
+    Crude Oil                               516.66/min
+    Iron Ore                                435.25/min
+    Limestone                                69.00/min
+    Raw Quartz                               88.60/min
+    Sulfur                                  211.00/min
+    Water                                   285.00/min

@@ -1,0 +1,229 @@
+TIER 8 - NEW CAPACITY (build top to bottom; whole machines at 100% clock)
+
+New items this tier (one excess machine each):
+    Cooling System                          5.00/min excess  via Alternate: Cooling Device  [ALTERNATE]
+    Copper Powder                          50.00/min excess  via Copper Powder
+    Dissolved Silica                       60.00/min excess  via Alternate: Quartz Purification  [ALTERNATE]
+    Electromagnetic Control Rod             4.00/min excess  via Electromagnetic Control Rod
+    Empty Fluid Tank                       60.00/min excess  via Empty Fluid Tank
+    Encased Plutonium Cell                 10.00/min excess  via Alternate: Instant Plutonium Cell  [ALTERNATE]
+    Encased Uranium Cell                   25.00/min excess  via Encased Uranium Cell
+    Fused Modular Frame                     3.00/min excess  via Alternate: Heat-Fused Frame  [ALTERNATE]
+    Heat Sink                              10.00/min excess  via Alternate: Heat Exchanger  [ALTERNATE]
+    Magnetic Field Generator                1.00/min excess  via Magnetic Field Generator
+    Nitric Acid                            30.00/min excess  via Nitric Acid
+    Non-Fissile Uranium                   100.00/min excess  via Alternate: Fertile Uranium  [ALTERNATE]
+    Nuclear Pasta                           0.50/min excess  via Nuclear Pasta
+    Nuke Nobelisk                           0.50/min excess  via Nuke Nobelisk
+    Packaged Nitric Acid                   30.00/min excess  via Packaged Nitric Acid
+    Packaged Nitrogen Gas                  60.00/min excess  via Packaged Nitrogen Gas
+    Packaged Rocket Fuel                   60.00/min excess  via Packaged Rocket Fuel
+    Plutonium Fuel Rod                      0.50/min excess  via Alternate: Plutonium Fuel Unit  [ALTERNATE]
+    Plutonium Pellet                       30.00/min excess  via Plutonium Pellet
+    Pressure Conversion Cube                1.00/min excess  via Pressure Conversion Cube
+    Rocket Fuel                           100.00/min excess  via Rocket Fuel
+    Thermal Propulsion Rocket               1.00/min excess  via Thermal Propulsion Rocket
+    Turbo Motor                             2.81/min excess  via Alternate: Turbo Electric Motor  [ALTERNATE]
+    Uranium Fuel Rod                        0.60/min excess  via Alternate: Uranium Fuel Unit  [ALTERNATE]
+
+Build order:
+   1. Heavy Oil Residue                23 x Refinery               Alternate: Heavy Oil Residue  [ALTERNATE]
+          inputs: Crude Oil
+          byproducts: Polymer Resin
+   2. Polymer Resin                    14 x Refinery               Alternate: Polymer Resin  [ALTERNATE]
+          inputs: Crude Oil
+          byproducts: Heavy Oil Residue
+   3. Alumina Solution                  6 x Refinery               Alternate: Sloppy Alumina  [ALTERNATE]
+          inputs: Bauxite, Water
+   4. Copper Ingot                     33 x Refinery               Alternate: Pure Copper Ingot  [ALTERNATE]
+          inputs: Copper Ore, Water
+   5. Iron Ingot                        1 x Refinery               Alternate: Pure Iron Ingot  [ALTERNATE]
+          inputs: Iron Ore, Water
+   6. Quartz Crystal                    1 x Refinery               Alternate: Pure Quartz Crystal  [ALTERNATE]
+          inputs: Raw Quartz, Water
+   7. Sulfuric Acid                     5 x Refinery               Sulfuric Acid
+          inputs: Sulfur, Water
+   8. Copper Powder                     3 x Constructor            Copper Powder
+          inputs: Copper Ingot (#4)
+   9. Fuel                             12 x Refinery               Residual Fuel
+          inputs: Heavy Oil Residue (#1)
+  10. Petroleum Coke                   10 x Refinery               Petroleum Coke
+          inputs: Heavy Oil Residue (#1)
+  11. Copper Sheet                      2 x Refinery               Alternate: Steamed Copper Sheet  [ALTERNATE]
+          inputs: Copper Ingot (#4), Water
+  12. Plastic                          38 x Refinery               Residual Plastic
+          inputs: Polymer Resin (#2), Water
+  13. Aluminum Scrap                    8 x Refinery               Alternate: Electrode Aluminum Scrap  [ALTERNATE]
+          inputs: Alumina Solution (#3), Petroleum Coke (#10)
+          byproducts: Water
+  14. Caterium Ingot                    3 x Foundry                Alternate: Tempered Caterium Ingot  [ALTERNATE]
+          inputs: Caterium Ore, Petroleum Coke (#10)
+  15. Iron Plate                        3 x Assembler              Alternate: Coated Iron Plate  [ALTERNATE]
+          inputs: Iron Ingot (#5), Plastic (#12)
+  16. Rubber                           12 x Refinery               Alternate: Recycled Rubber  [ALTERNATE]
+          inputs: Plastic (#12), Fuel (#9)
+  17. Steel Ingot                       2 x Foundry                Alternate: Coke Steel Ingot  [ALTERNATE]
+          inputs: Iron Ore, Petroleum Coke (#10)
+  18. Turbofuel                         3 x Blender                Alternate: Turbo Blend Fuel  [ALTERNATE]
+          inputs: Fuel (#9), Heavy Oil Residue (#1), Sulfur, Petroleum Coke (#10)
+  19. Aluminum Ingot                   37 x Smelter                Alternate: Pure Aluminum Ingot
+          inputs: Aluminum Scrap (#13)
+  20. Steel Pipe                        6 x Constructor            Steel Pipe
+          inputs: Steel Ingot (#17)
+  21. Circuit Board                    12 x Assembler              Alternate: Electrode Circuit Board  [ALTERNATE]
+          inputs: Rubber (#16), Petroleum Coke (#10)
+  22. Concrete                          2 x Assembler              Alternate: Rubber Concrete  [ALTERNATE]
+          inputs: Limestone, Rubber (#16)
+  23. Quickwire                         6 x Assembler              Alternate: Fused Quickwire  [ALTERNATE]
+          inputs: Caterium Ingot (#14), Copper Ingot (#4)
+  24. Reinforced Iron Plate            13 x Assembler              Alternate: Adhered Iron Plate  [ALTERNATE]
+          inputs: Iron Plate (#15), Rubber (#16)
+  25. Wire                              5 x Assembler              Alternate: Fused Wire  [ALTERNATE]
+          inputs: Copper Ingot (#4), Caterium Ingot (#14)
+  26. Nitric Acid                       7 x Blender                Nitric Acid
+          inputs: Nitrogen Gas, Water, Iron Plate (#15)
+  27. Aluminum Casing                   6 x Constructor            Aluminum Casing
+          inputs: Aluminum Ingot (#19)
+  28. Empty Fluid Tank                  4 x Constructor            Empty Fluid Tank
+          inputs: Aluminum Ingot (#19)
+  29. Steel Beam                        5 x Constructor            Alternate: Aluminum Beam  [ALTERNATE]
+          inputs: Aluminum Ingot (#19)
+  30. AI Limiter                        4 x Assembler              Alternate: Plastic AI Limiter  [ALTERNATE]
+          inputs: Quickwire (#23), Plastic (#12)
+  31. Cable                             1 x Assembler              Alternate: Insulated Cable  [ALTERNATE]
+          inputs: Wire (#25), Rubber (#16)
+  32. Quartz Crystal                    1 x Refinery               Alternate: Quartz Purification  [ALTERNATE]
+          inputs: Raw Quartz, Nitric Acid (#26)
+          byproducts: Dissolved Silica
+  33. Rocket Fuel                       3 x Blender                Rocket Fuel
+          inputs: Turbofuel (#18), Nitric Acid (#26)
+          byproducts: Compacted Coal
+  34. Stator                            8 x Assembler              Stator
+          inputs: Steel Pipe (#20), Wire (#25)
+  35. Encased Uranium Cell              6 x Blender                Encased Uranium Cell
+          inputs: Uranium, Concrete (#22), Sulfuric Acid (#7)
+          byproducts: Sulfuric Acid
+  36. Screws                            7 x Constructor            Alternate: Steel Screws  [ALTERNATE]
+          inputs: Steel Beam (#29)
+  37. Electromagnetic Control Rod       6 x Assembler              Electromagnetic Control Rod
+          inputs: Stator (#34), AI Limiter (#30)
+  38. Encased Industrial Beam           3 x Assembler              Encased Industrial Beam
+          inputs: Steel Beam (#29), Concrete (#22)
+  39. Heat Sink                         3 x Assembler              Alternate: Heat Exchanger  [ALTERNATE]
+          inputs: Aluminum Casing (#27), Rubber (#16)
+  40. Packaged Nitric Acid              1 x Packager               Packaged Nitric Acid
+          inputs: Nitric Acid (#26), Empty Fluid Tank (#28)
+  41. Packaged Nitrogen Gas             1 x Packager               Packaged Nitrogen Gas
+          inputs: Nitrogen Gas, Empty Fluid Tank (#28)
+  42. Packaged Rocket Fuel              1 x Packager               Packaged Rocket Fuel
+          inputs: Rocket Fuel (#33), Empty Fluid Tank (#28)
+  43. Computer                          6 x Manufacturer           Computer
+          inputs: Circuit Board (#21), Cable (#31), Plastic (#12)
+  44. Crystal Oscillator                7 x Manufacturer           Alternate: Insulated Crystal Oscillator  [ALTERNATE]
+          inputs: Quartz Crystal (#32), Rubber (#16), AI Limiter (#30)
+  45. Nuke Nobelisk                     1 x Manufacturer           Nuke Nobelisk
+          inputs: Nobelisk (bus), Encased Uranium Cell (#35), Smokeless Powder (bus), AI Limiter (#30)
+  46. Modular Frame                     6 x Assembler              Alternate: Bolted Frame  [ALTERNATE]
+          inputs: Reinforced Iron Plate (#24), Screws (#36)
+  47. Rotor                             3 x Assembler              Alternate: Copper Rotor  [ALTERNATE]
+          inputs: Copper Sheet (#11), Screws (#36)
+  48. Radio Control Unit                7 x Manufacturer           Radio Control Unit
+          inputs: Aluminum Casing (#27), Crystal Oscillator (#44), Computer (#43)
+  49. Motor                             2 x Manufacturer           Alternate: Rigor Motor  [ALTERNATE]
+          inputs: Rotor (#47), Stator (#34), Crystal Oscillator (#44)
+  50. Smart Plating                     1 x Manufacturer           Alternate: Plastic Smart Plating  [ALTERNATE]
+          inputs: Reinforced Iron Plate (#24), Rotor (#47), Plastic (#12)
+  51. Versatile Framework               1 x Manufacturer           Alternate: Flexible Framework  [ALTERNATE]
+          inputs: Modular Frame (#46), Steel Beam (#29), Rubber (#16)
+  52. Heavy Modular Frame               2 x Manufacturer           Alternate: Heavy Flexible Frame  [ALTERNATE]
+          inputs: Modular Frame (#46), Encased Industrial Beam (#38), Rubber (#16), Screws (#36)
+  53. Uranium Fuel Rod                  5 x Manufacturer           Alternate: Uranium Fuel Unit  [ALTERNATE]
+          inputs: Encased Uranium Cell (#35), Electromagnetic Control Rod (#37), Crystal Oscillator (#44), Rotor (#47)
+  54. Magnetic Field Generator          1 x Assembler              Magnetic Field Generator
+          inputs: Versatile Framework (#51), Electromagnetic Control Rod (#37)
+  55. Uranium Waste                    12 x Nuclear Power Plant    Burn Uranium Fuel Rod
+          inputs: Uranium Fuel Rod (#53), Water
+  56. Cooling System                    2 x Blender                Alternate: Cooling Device  [ALTERNATE]
+          inputs: Heat Sink (#39), Motor (#49), Nitrogen Gas
+  57. Modular Engine                    3 x Manufacturer           Modular Engine
+          inputs: Motor (#49), Rubber (#16), Smart Plating (#50)
+  58. Fused Modular Frame               2 x Blender                Alternate: Heat-Fused Frame  [ALTERNATE]
+          inputs: Heavy Modular Frame (#52), Aluminum Ingot (#19), Nitric Acid (#26), Fuel (#9)
+  59. Turbo Motor                       2 x Manufacturer           Alternate: Turbo Electric Motor  [ALTERNATE]
+          inputs: Motor (#49), Radio Control Unit (#48), Electromagnetic Control Rod (#37), Rotor (#47)
+  60. Pressure Conversion Cube          2 x Assembler              Pressure Conversion Cube
+          inputs: Fused Modular Frame (#58), Radio Control Unit (#48)
+  61. Non-Fissile Uranium               4 x Blender                Alternate: Fertile Uranium  [ALTERNATE]
+          inputs: Uranium, Uranium Waste (#55), Nitric Acid (#26), Sulfuric Acid (#7)
+          byproducts: Water
+  62. Thermal Propulsion Rocket         1 x Manufacturer           Thermal Propulsion Rocket
+          inputs: Modular Engine (#57), Turbo Motor (#59), Cooling System (#56), Fused Modular Frame (#58)
+  63. Encased Plutonium Cell            2 x Particle Accelerator   Alternate: Instant Plutonium Cell  [ALTERNATE]
+          inputs: Non-Fissile Uranium (#61), Aluminum Casing (#27)
+  64. Nuclear Pasta                     1 x Particle Accelerator   Nuclear Pasta
+          inputs: Copper Powder (#8), Pressure Conversion Cube (#60)
+  65. Plutonium Pellet                  1 x Particle Accelerator   Plutonium Pellet
+          inputs: Non-Fissile Uranium (#61), Uranium Waste (#55)
+  66. Plutonium Fuel Rod                1 x Assembler              Alternate: Plutonium Fuel Unit  [ALTERNATE]
+          inputs: Encased Plutonium Cell (#63), Pressure Conversion Cube (#60)
+
+New machines this tier: 402   power used: 13,162.0 MW at 100% clock   power generated: 30,000 MW (nuclear)
+
+Spare capacity from earlier tiers now put to work (machines' worth):
+    Iron Ingot                              0.97
+    Cable                                   0.96
+    Quickwire                               0.92
+    Steel Pipe                              0.90
+    Reinforced Iron Plate                   0.90
+    Modular Frame                           0.85
+    Aluminum Ingot                          0.84
+    Screws                                  0.81
+    Computer                                0.80
+    Stator                                  0.80
+    AI Limiter                              0.79
+    Copper Sheet                            0.78
+    Copper Ingot                            0.74
+    Motor                                   0.73
+    Crystal Oscillator                      0.62
+    Smart Plating                           0.60
+    Rubber                                  0.60
+    Fuel                                    0.59
+    Encased Industrial Beam                 0.54
+    Plastic                                 0.43
+    Circuit Board                           0.43
+    Alumina Solution                        0.38
+    Steel Beam                              0.37
+    Polymer Resin                           0.36
+    Heavy Modular Frame                     0.33
+    Caterium Ingot                          0.32
+    Heavy Oil Residue                       0.32
+    Rotor                                   0.31
+    Quartz Crystal                          0.29
+    Petroleum Coke                          0.29
+    Concrete                                0.26
+    Smokeless Powder                        0.25
+    Nobelisk                                0.25
+    Black Powder                            0.22
+    Iron Plate                              0.22
+    Sulfuric Acid                           0.20
+    Aluminum Scrap                          0.17
+    Turbofuel                               0.13
+    Iron Rod                                0.13
+    Steel Ingot                             0.10
+    Wire                                    0.09
+    Aluminum Casing                         0.02
+
+Raw input for the whole bus after this tier:
+    Bauxite                               1,852.79/min
+    Caterium Ore                            419.31/min
+    Coal                                    245.78/min
+    Copper Ore                              905.45/min
+    Crude Oil                             3,773.27/min
+    Iron Ore                                958.41/min
+    Limestone                               385.56/min
+    Nitrogen Gas                          1,106.00/min
+    Raw Quartz                              452.29/min
+    SAM                                     240.00/min
+    Sulfur                                  672.92/min
+    Uranium                                 347.50/min
+    Water                                 6,553.73/min

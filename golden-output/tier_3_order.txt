@@ -1,0 +1,61 @@
+TIER 3 - NEW CAPACITY (build top to bottom; whole machines at 100% clock)
+
+New items this tier (one excess machine each):
+    Nobelisk                               10.00/min excess  via Nobelisk
+    Portable Miner                          1.00/min excess  via Alternate: Automated Miner  [ALTERNATE]
+    Steel Beam                             15.00/min excess  via Steel Beam
+    Steel Pipe                             20.00/min excess  via Steel Pipe
+    Versatile Framework                     5.00/min excess  via Versatile Framework
+
+Build order:
+   1. Caterium Ingot                    1 x Smelter                Caterium Ingot
+          inputs: Caterium Ore
+   2. Copper Ingot                      1 x Smelter                Copper Ingot
+          inputs: Copper Ore
+   3. Compacted Coal                    3 x Assembler              Alternate: Compacted Coal  [ALTERNATE]
+          inputs: Coal, Sulfur
+   4. Black Powder                      1 x Assembler              Alternate: Fine Black Powder  [ALTERNATE]
+          inputs: Sulfur, Compacted Coal (#3)
+   5. Steel Ingot                      26 x Foundry                Alternate: Compacted Steel Ingot  [ALTERNATE]
+          inputs: Iron Ore, Compacted Coal (#3)
+   6. Wire                              1 x Assembler              Alternate: Fused Wire  [ALTERNATE]
+          inputs: Copper Ingot (#2), Caterium Ingot (#1)
+   7. Iron Rod                          1 x Constructor            Alternate: Steel Rod  [ALTERNATE]
+          inputs: Steel Ingot (#5)
+   8. Steel Beam                        3 x Constructor            Steel Beam
+          inputs: Steel Ingot (#5)
+   9. Steel Pipe                        3 x Constructor            Steel Pipe
+          inputs: Steel Ingot (#5)
+  10. Iron Plate                        1 x Foundry                Alternate: Steel Cast Plate  [ALTERNATE]
+          inputs: Iron Ingot (bus), Steel Ingot (#5)
+  11. Nobelisk                          1 x Assembler              Nobelisk
+          inputs: Black Powder (#4), Steel Pipe (#9)
+  12. Portable Miner                    1 x Assembler              Alternate: Automated Miner  [ALTERNATE]
+          inputs: Steel Pipe (#9), Iron Plate (#10)
+  13. Reinforced Iron Plate             1 x Assembler              Alternate: Stitched Iron Plate  [ALTERNATE]
+          inputs: Iron Plate (#10), Wire (#6)
+  14. Modular Frame                     2 x Assembler              Modular Frame
+          inputs: Reinforced Iron Plate (#13), Iron Rod (#7)
+  15. Versatile Framework               1 x Assembler              Versatile Framework
+          inputs: Modular Frame (#14), Steel Beam (#8)
+
+New machines this tier: 47   power used: 633.0 MW at 100% clock
+
+Spare capacity from earlier tiers now put to work (machines' worth):
+    Iron Ingot                              0.55
+    Compacted Coal                          0.40
+    Iron Rod                                0.37
+    Iron Plate                              0.23
+    Wire                                    0.21
+    Reinforced Iron Plate                   0.11
+    Copper Ingot                            0.09
+    Caterium Ingot                          0.04
+
+Raw input for the whole bus after this tier:
+    Caterium Ore                            135.58/min
+    Coal                                    109.75/min
+    Copper Ore                              180.78/min
+    Iron Ore                                355.14/min
+    Limestone                                45.00/min
+    Raw Quartz                               85.00/min
+    Sulfur                                  120.58/min

@@ -1,0 +1,171 @@
+TIER 7 - NEW CAPACITY (build top to bottom; whole machines at 100% clock)
+
+New items this tier (one excess machine each):
+    Alclad Aluminum Sheet                  30.00/min excess  via Alclad Aluminum Sheet
+    Alumina Solution                      240.00/min excess  via Alternate: Sloppy Alumina  [ALTERNATE]
+    Aluminum Casing                        60.00/min excess  via Aluminum Casing
+    Aluminum Scrap                        300.00/min excess  via Alternate: Electrode Aluminum Scrap  [ALTERNATE]
+    Assembly Director System                0.75/min excess  via Assembly Director System
+    Battery                                30.00/min excess  via Alternate: Classic Battery  [ALTERNATE]
+    Iodine-Infused Filter                   3.75/min excess  via Iodine-Infused Filter
+    Packaged Alumina Solution             120.00/min excess  via Packaged Alumina Solution
+    Packaged Sulfuric Acid                 40.00/min excess  via Packaged Sulfuric Acid
+    Radio Control Unit                      2.50/min excess  via Radio Control Unit
+    Sulfuric Acid                          50.00/min excess  via Sulfuric Acid
+    Supercomputer                           1.88/min excess  via Supercomputer
+    Turbo Rifle Ammo                      250.00/min excess  via Turbo Rifle Ammo
+
+Build order:
+   1. Heavy Oil Residue                 9 x Refinery               Alternate: Heavy Oil Residue  [ALTERNATE]
+          inputs: Crude Oil
+          byproducts: Polymer Resin
+   2. Polymer Resin                    15 x Refinery               Alternate: Polymer Resin  [ALTERNATE]
+          inputs: Crude Oil
+          byproducts: Heavy Oil Residue
+   3. Silica                            2 x Constructor            Silica
+          inputs: Raw Quartz
+   4. Steel Pipe                        2 x Constructor            Steel Pipe
+          inputs: Steel Ingot (bus)
+   5. Alumina Solution                  4 x Refinery               Alternate: Sloppy Alumina  [ALTERNATE]
+          inputs: Bauxite, Water
+   6. Compacted Coal                    1 x Assembler              Alternate: Compacted Coal  [ALTERNATE]
+          inputs: Coal, Sulfur
+   7. Copper Ingot                      7 x Refinery               Alternate: Pure Copper Ingot  [ALTERNATE]
+          inputs: Copper Ore, Water
+   8. Iron Ingot                        1 x Refinery               Alternate: Pure Iron Ingot  [ALTERNATE]
+          inputs: Iron Ore, Water
+   9. Sulfuric Acid                     2 x Refinery               Sulfuric Acid
+          inputs: Sulfur, Water
+  10. Gas Filter                        1 x Manufacturer           Gas Filter
+          inputs: Fabric (bus), Coal, Iron Plate (bus)
+  11. Fuel                              6 x Refinery               Residual Fuel
+          inputs: Heavy Oil Residue (#1)
+  12. Petroleum Coke                    7 x Refinery               Petroleum Coke
+          inputs: Heavy Oil Residue (#1)
+  13. Copper Sheet                      1 x Refinery               Alternate: Steamed Copper Sheet  [ALTERNATE]
+          inputs: Copper Ingot (#7), Water
+  14. Plastic                          37 x Refinery               Residual Plastic
+          inputs: Polymer Resin (#2), Water
+  15. Smokeless Powder                  1 x Refinery               Smokeless Powder
+          inputs: Black Powder (bus), Heavy Oil Residue (#1)
+  16. Empty Canister                    3 x Constructor            Empty Canister
+          inputs: Plastic (#14)
+  17. Aluminum Scrap                    3 x Refinery               Alternate: Electrode Aluminum Scrap  [ALTERNATE]
+          inputs: Alumina Solution (#5), Petroleum Coke (#12)
+          byproducts: Water
+  18. Caterium Ingot                    2 x Foundry                Alternate: Tempered Caterium Ingot  [ALTERNATE]
+          inputs: Caterium Ore, Petroleum Coke (#12)
+  19. Rifle Ammo                        2 x Assembler              Rifle Ammo
+          inputs: Copper Sheet (#13), Smokeless Powder (#15)
+  20. Rubber                            8 x Refinery               Alternate: Recycled Rubber  [ALTERNATE]
+          inputs: Plastic (#14), Fuel (#11)
+  21. Aluminum Ingot                   10 x Smelter                Alternate: Pure Aluminum Ingot
+          inputs: Aluminum Scrap (#17)
+  22. Circuit Board                    16 x Assembler              Alternate: Electrode Circuit Board  [ALTERNATE]
+          inputs: Rubber (#20), Petroleum Coke (#12)
+  23. Packaged Alumina Solution         1 x Packager               Packaged Alumina Solution
+          inputs: Alumina Solution (#5), Empty Canister (#16)
+  24. Packaged Sulfuric Acid            1 x Packager               Packaged Sulfuric Acid
+          inputs: Sulfuric Acid (#9), Empty Canister (#16)
+  25. Packaged Turbofuel                1 x Packager               Packaged Turbofuel
+          inputs: Turbofuel (bus), Empty Canister (#16)
+  26. Quickwire                         4 x Assembler              Alternate: Fused Quickwire  [ALTERNATE]
+          inputs: Caterium Ingot (#18), Copper Ingot (#7)
+  27. Reinforced Iron Plate             3 x Assembler              Alternate: Adhered Iron Plate  [ALTERNATE]
+          inputs: Iron Plate (bus), Rubber (#20)
+  28. Wire                              3 x Assembler              Alternate: Fused Wire  [ALTERNATE]
+          inputs: Copper Ingot (#7), Caterium Ingot (#18)
+  29. Aluminum Casing                   2 x Constructor            Aluminum Casing
+          inputs: Aluminum Ingot (#21)
+  30. Steel Beam                        1 x Constructor            Alternate: Aluminum Beam  [ALTERNATE]
+          inputs: Aluminum Ingot (#21)
+  31. AI Limiter                        1 x Assembler              Alternate: Plastic AI Limiter  [ALTERNATE]
+          inputs: Quickwire (#26), Plastic (#14)
+  32. Alclad Aluminum Sheet             3 x Assembler              Alclad Aluminum Sheet
+          inputs: Aluminum Ingot (#21), Copper Ingot (#7)
+  33. Cable                             3 x Assembler              Alternate: Insulated Cable  [ALTERNATE]
+          inputs: Wire (#28), Rubber (#20)
+  34. Stator                            2 x Assembler              Stator
+          inputs: Steel Pipe (#4), Wire (#28)
+  35. High-Speed Connector              3 x Manufacturer           Alternate: Silicon High-Speed Connector  [ALTERNATE]
+          inputs: Quickwire (#26), Silica (#3), Circuit Board (#22)
+  36. Screws                            2 x Constructor            Alternate: Steel Screws  [ALTERNATE]
+          inputs: Steel Beam (#30)
+  37. Automated Wiring                  3 x Assembler              Automated Wiring
+          inputs: Stator (#34), Cable (#33)
+  38. Encased Industrial Beam           1 x Assembler              Encased Industrial Beam
+          inputs: Steel Beam (#30), Concrete (bus)
+  39. Computer                          7 x Manufacturer           Computer
+          inputs: Circuit Board (#22), Cable (#33), Plastic (#14)
+  40. Crystal Oscillator                1 x Manufacturer           Alternate: Insulated Crystal Oscillator  [ALTERNATE]
+          inputs: Quartz Crystal (bus), Rubber (#20), AI Limiter (#31)
+  41. Iodine-Infused Filter             1 x Manufacturer           Iodine-Infused Filter
+          inputs: Gas Filter (#10), Quickwire (#26), Aluminum Casing (#29)
+  42. Turbo Rifle Ammo                  1 x Manufacturer           Turbo Rifle Ammo
+          inputs: Rifle Ammo (#19), Aluminum Casing (#29), Packaged Turbofuel (#25)
+  43. Battery                           1 x Manufacturer           Alternate: Classic Battery  [ALTERNATE]
+          inputs: Sulfur, Alclad Aluminum Sheet (#32), Plastic (#14), Wire (#28)
+  44. Modular Frame                     2 x Assembler              Alternate: Bolted Frame  [ALTERNATE]
+          inputs: Reinforced Iron Plate (#27), Screws (#36)
+  45. Radio Control Unit                1 x Manufacturer           Radio Control Unit
+          inputs: Aluminum Casing (#29), Crystal Oscillator (#40), Computer (#39)
+  46. Adaptive Control Unit             2 x Manufacturer           Adaptive Control Unit
+          inputs: Automated Wiring (#37), Circuit Board (#22), Heavy Modular Frame (bus), Computer (#39)
+  47. Supercomputer                     2 x Manufacturer           Supercomputer
+          inputs: Computer (#39), AI Limiter (#31), High-Speed Connector (#35), Plastic (#14)
+  48. Assembly Director System          1 x Assembler              Assembly Director System
+          inputs: Adaptive Control Unit (#46), Supercomputer (#47)
+
+New machines this tier: 193   power used: 4,955.0 MW at 100% clock
+
+Spare capacity from earlier tiers now put to work (machines' worth):
+    Quickwire                               0.97
+    Polymer Resin                           0.94
+    Reinforced Iron Plate                   0.90
+    Copper Sheet                            0.89
+    Modular Frame                           0.88
+    Turbofuel                               0.80
+    Silica                                  0.77
+    Fuel                                    0.74
+    Cable                                   0.74
+    AI Limiter                              0.60
+    Iron Plate                              0.55
+    Steel Pipe                              0.55
+    Petroleum Coke                          0.54
+    Steel Ingot                             0.53
+    Encased Industrial Beam                 0.44
+    Heavy Modular Frame                     0.40
+    Black Powder                            0.37
+    Rifle Ammo                              0.33
+    Circuit Board                           0.30
+    Stator                                  0.30
+    Crystal Oscillator                      0.29
+    Iron Ingot                              0.29
+    Concrete                                0.28
+    Iron Rod                                0.26
+    Fabric                                  0.25
+    Quartz Crystal                          0.24
+    Heavy Oil Residue                       0.23
+    Rubber                                  0.21
+    Computer                                0.20
+    Screws                                  0.18
+    Smokeless Powder                        0.17
+    High-Speed Connector                    0.17
+    Copper Ingot                            0.16
+    Wire                                    0.14
+    Caterium Ingot                          0.07
+    Plastic                                 0.04
+    Compacted Coal                          0.00
+
+Raw input for the whole bus after this tier:
+    Bauxite                                 724.83/min
+    Caterium Ore                            300.63/min
+    Coal                                    262.44/min
+    Copper Ore                              408.94/min
+    Crude Oil                             2,248.79/min
+    Iron Ore                                758.68/min
+    Limestone                               178.89/min
+    Raw Quartz                              254.49/min
+    SAM                                     240.00/min
+    Sulfur                                  379.67/min
+    Water                                 1,991.05/min

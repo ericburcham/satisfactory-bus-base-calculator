@@ -1,0 +1,48 @@
+step,item,new_machines,building,recipe,alternate,excess_target,sink_disposal,inputs,byproducts,mw
+1,Heavy Oil Residue,8,Refinery,Alternate: Heavy Oil Residue,yes,,,Crude Oil,Polymer Resin,240
+2,Polymer Resin,5,Refinery,Alternate: Polymer Resin,yes,,,Crude Oil,Heavy Oil Residue,150
+3,Reanimated SAM,2,Constructor,Reanimated SAM,,,,SAM,,8
+4,Silica,2,Constructor,Silica,,,,Raw Quartz,,8
+5,Black Powder,1,Assembler,Alternate: Fine Black Powder,yes,,,Sulfur; Compacted Coal (bus),,15
+6,Copper Ingot,3,Refinery,Alternate: Pure Copper Ingot,yes,,,Copper Ore; Water,,90
+7,Iron Ingot,1,Refinery,Alternate: Pure Iron Ingot,yes,,,Iron Ore; Water,,30
+8,Quartz Crystal,1,Refinery,Alternate: Pure Quartz Crystal,yes,,,Raw Quartz; Water,,30
+9,Fuel,4,Refinery,Residual Fuel,,,,Heavy Oil Residue (#1),,120
+10,Petroleum Coke,4,Refinery,Petroleum Coke,,,,Heavy Oil Residue (#1),,120
+11,Copper Sheet,1,Refinery,Alternate: Steamed Copper Sheet,yes,,,Copper Ingot (#6); Water,,30
+12,Fabric,1,Refinery,Alternate: Polyester Fabric,yes,,,Polymer Resin (#2); Water,,30
+13,Plastic,13,Refinery,Residual Plastic,,,,Polymer Resin (#2); Water,,390
+14,Smokeless Powder,1,Refinery,Smokeless Powder,,,,Black Powder (#5); Heavy Oil Residue (#1),,30
+15,Caterium Ingot,1,Foundry,Alternate: Tempered Caterium Ingot,yes,,,Caterium Ore; Petroleum Coke (#10),,16
+16,Iron Plate,2,Assembler,Alternate: Coated Iron Plate,yes,,,Iron Ingot (#7); Plastic (#13),,30
+17,Rifle Ammo,1,Assembler,Rifle Ammo,,,,Copper Sheet (#11); Smokeless Powder (#14),,15
+18,Rubber,5,Refinery,Alternate: Recycled Rubber,yes,,,Plastic (#13); Fuel (#9),,150
+19,Steel Ingot,3,Foundry,Alternate: Coke Steel Ingot,yes,,,Iron Ore; Petroleum Coke (#10),,48
+20,Iron Rod,6,Constructor,Alternate: Steel Rod,yes,,,Steel Ingot (#19),,24
+21,Steel Pipe,8,Constructor,Steel Pipe,,,,Steel Ingot (#19),,32
+22,Circuit Board,6,Assembler,Alternate: Electrode Circuit Board,yes,,,Rubber (#18); Petroleum Coke (#10),,90
+23,Concrete,1,Assembler,Alternate: Rubber Concrete,yes,,,Limestone; Rubber (#18),,15
+24,Quickwire,3,Assembler,Alternate: Fused Quickwire,yes,,,Caterium Ingot (#15); Copper Ingot (#6),,45
+25,Reinforced Iron Plate,10,Assembler,Alternate: Adhered Iron Plate,yes,,,Iron Plate (#16); Rubber (#18),,150
+26,Wire,2,Assembler,Alternate: Fused Wire,yes,,,Copper Ingot (#6); Caterium Ingot (#15),,30
+27,Gas Filter,1,Manufacturer,Gas Filter,,yes,,Fabric (#12); Coal; Iron Plate (#16),,55
+28,Screws,13,Constructor,Screws,,,,Iron Rod (#20),,52
+29,AI Limiter,1,Assembler,Alternate: Plastic AI Limiter,yes,,,Quickwire (#24); Plastic (#13),,15
+30,Cable,2,Assembler,Alternate: Insulated Cable,yes,,,Wire (#26); Rubber (#18),,30
+31,Encased Industrial Beam,4,Assembler,Alternate: Encased Industrial Pipe,yes,,,Steel Pipe (#21); Concrete (#23),,60
+32,Modular Frame,12,Assembler,Modular Frame,,,,Reinforced Iron Plate (#25); Iron Rod (#20),,180
+33,Nobelisk,1,Assembler,Nobelisk,,,,Black Powder (#5); Steel Pipe (#21),,15
+34,Stator,1,Assembler,Stator,,,,Steel Pipe (#21); Wire (#26),,15
+35,Explosive Rebar,1,Manufacturer,Explosive Rebar,,yes,,Iron Rebar (bus); Smokeless Powder (#14); Steel Pipe (#21),,55
+36,High-Speed Connector,2,Manufacturer,Alternate: Silicon High-Speed Connector,yes,yes,,Quickwire (#24); Silica (#4); Circuit Board (#22),,110
+37,SAM Fluctuator,1,Manufacturer,SAM Fluctuator,,yes,,Reanimated SAM (#3); Wire (#26); Steel Pipe (#21),,55
+38,Smart Plating,1,Manufacturer,Alternate: Plastic Smart Plating,yes,,,Reinforced Iron Plate (#25); Rotor (bus); Plastic (#13),,55
+39,Automated Wiring,2,Assembler,Automated Wiring,,,,Stator (#34); Cable (#30),,30
+40,Homing Rifle Ammo,1,Assembler,Homing Rifle Ammo,,yes,,Rifle Ammo (#17); High-Speed Connector (#36),,15
+41,Computer,2,Manufacturer,Computer,,yes,,Circuit Board (#22); Cable (#30); Plastic (#13),,110
+42,Crystal Oscillator,2,Manufacturer,Alternate: Insulated Crystal Oscillator,yes,yes,,Quartz Crystal (#8); Rubber (#18); AI Limiter (#29),,110
+43,Heavy Modular Frame,2,Manufacturer,Alternate: Heavy Flexible Frame,yes,yes,,Modular Frame (#32); Encased Industrial Beam (#31); Rubber (#18); Screws (#28),,110
+44,Pulse Nobelisk,1,Assembler,Pulse Nobelisk,,yes,,Nobelisk (#33); Crystal Oscillator (#42),,15
+45,Motor,1,Manufacturer,Alternate: Rigor Motor,yes,,,Rotor (bus); Stator (#34); Crystal Oscillator (#42),,55
+46,Adaptive Control Unit,1,Manufacturer,Adaptive Control Unit,,yes,,Automated Wiring (#39); Circuit Board (#22); Heavy Modular Frame (#43); Computer (#41),,55
+47,Modular Engine,1,Manufacturer,Modular Engine,,yes,,Motor (#45); Rubber (#18); Smart Plating (#38),,55

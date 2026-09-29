@@ -1,0 +1,9 @@
+step,item,new_machines,building,recipe,alternate,excess_target,sink_disposal,inputs,byproducts,mw
+1,Concrete,1,Constructor,Concrete,,yes,,Limestone,,4
+2,Copper Ingot,2,Smelter,Copper Ingot,,,,Copper Ore,,8
+3,Iron Ingot,2,Smelter,Iron Ingot,,,,Iron Ore,,8
+4,Iron Plate,1,Constructor,Iron Plate,,yes,,Iron Ingot (#3),,4
+5,Iron Rod,2,Constructor,Iron Rod,,yes,,Iron Ingot (#3),,8
+6,Wire,3,Constructor,Wire,,yes,,Copper Ingot (#2),,12
+7,Cable,1,Constructor,Cable,,yes,,Wire (#6),,4
+8,Screws,1,Constructor,Screws,,yes,,Iron Rod (#5),,4

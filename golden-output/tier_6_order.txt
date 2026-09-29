@@ -1,0 +1,156 @@
+TIER 6 - NEW CAPACITY (build top to bottom; whole machines at 100% clock)
+
+New items this tier (one excess machine each):
+    Adaptive Control Unit                   1.00/min excess  via Adaptive Control Unit
+    Computer                                2.50/min excess  via Computer
+    Crystal Oscillator                      1.88/min excess  via Alternate: Insulated Crystal Oscillator  [ALTERNATE]
+    Explosive Rebar                         5.00/min excess  via Explosive Rebar
+    Gas Filter                              7.50/min excess  via Gas Filter
+    Heavy Modular Frame                     3.75/min excess  via Alternate: Heavy Flexible Frame  [ALTERNATE]
+    High-Speed Connector                    3.00/min excess  via Alternate: Silicon High-Speed Connector  [ALTERNATE]
+    Homing Rifle Ammo                      25.00/min excess  via Homing Rifle Ammo
+    Modular Engine                          1.00/min excess  via Modular Engine
+    Pulse Nobelisk                          5.00/min excess  via Pulse Nobelisk
+    SAM Fluctuator                         10.00/min excess  via SAM Fluctuator
+
+Build order:
+   1. Heavy Oil Residue                 8 x Refinery               Alternate: Heavy Oil Residue  [ALTERNATE]
+          inputs: Crude Oil
+          byproducts: Polymer Resin
+   2. Polymer Resin                     5 x Refinery               Alternate: Polymer Resin  [ALTERNATE]
+          inputs: Crude Oil
+          byproducts: Heavy Oil Residue
+   3. Reanimated SAM                    2 x Constructor            Reanimated SAM
+          inputs: SAM
+   4. Silica                            2 x Constructor            Silica
+          inputs: Raw Quartz
+   5. Black Powder                      1 x Assembler              Alternate: Fine Black Powder  [ALTERNATE]
+          inputs: Sulfur, Compacted Coal (bus)
+   6. Copper Ingot                      3 x Refinery               Alternate: Pure Copper Ingot  [ALTERNATE]
+          inputs: Copper Ore, Water
+   7. Iron Ingot                        1 x Refinery               Alternate: Pure Iron Ingot  [ALTERNATE]
+          inputs: Iron Ore, Water
+   8. Quartz Crystal                    1 x Refinery               Alternate: Pure Quartz Crystal  [ALTERNATE]
+          inputs: Raw Quartz, Water
+   9. Fuel                              4 x Refinery               Residual Fuel
+          inputs: Heavy Oil Residue (#1)
+  10. Petroleum Coke                    4 x Refinery               Petroleum Coke
+          inputs: Heavy Oil Residue (#1)
+  11. Copper Sheet                      1 x Refinery               Alternate: Steamed Copper Sheet  [ALTERNATE]
+          inputs: Copper Ingot (#6), Water
+  12. Fabric                            1 x Refinery               Alternate: Polyester Fabric  [ALTERNATE]
+          inputs: Polymer Resin (#2), Water
+  13. Plastic                          13 x Refinery               Residual Plastic
+          inputs: Polymer Resin (#2), Water
+  14. Smokeless Powder                  1 x Refinery               Smokeless Powder
+          inputs: Black Powder (#5), Heavy Oil Residue (#1)
+  15. Caterium Ingot                    1 x Foundry                Alternate: Tempered Caterium Ingot  [ALTERNATE]
+          inputs: Caterium Ore, Petroleum Coke (#10)
+  16. Iron Plate                        2 x Assembler              Alternate: Coated Iron Plate  [ALTERNATE]
+          inputs: Iron Ingot (#7), Plastic (#13)
+  17. Rifle Ammo                        1 x Assembler              Rifle Ammo
+          inputs: Copper Sheet (#11), Smokeless Powder (#14)
+  18. Rubber                            5 x Refinery               Alternate: Recycled Rubber  [ALTERNATE]
+          inputs: Plastic (#13), Fuel (#9)
+  19. Steel Ingot                       3 x Foundry                Alternate: Coke Steel Ingot  [ALTERNATE]
+          inputs: Iron Ore, Petroleum Coke (#10)
+  20. Iron Rod                          6 x Constructor            Alternate: Steel Rod  [ALTERNATE]
+          inputs: Steel Ingot (#19)
+  21. Steel Pipe                        8 x Constructor            Steel Pipe
+          inputs: Steel Ingot (#19)
+  22. Circuit Board                     6 x Assembler              Alternate: Electrode Circuit Board  [ALTERNATE]
+          inputs: Rubber (#18), Petroleum Coke (#10)
+  23. Concrete                          1 x Assembler              Alternate: Rubber Concrete  [ALTERNATE]
+          inputs: Limestone, Rubber (#18)
+  24. Quickwire                         3 x Assembler              Alternate: Fused Quickwire  [ALTERNATE]
+          inputs: Caterium Ingot (#15), Copper Ingot (#6)
+  25. Reinforced Iron Plate            10 x Assembler              Alternate: Adhered Iron Plate  [ALTERNATE]
+          inputs: Iron Plate (#16), Rubber (#18)
+  26. Wire                              2 x Assembler              Alternate: Fused Wire  [ALTERNATE]
+          inputs: Copper Ingot (#6), Caterium Ingot (#15)
+  27. Gas Filter                        1 x Manufacturer           Gas Filter
+          inputs: Fabric (#12), Coal, Iron Plate (#16)
+  28. Screws                           13 x Constructor            Screws
+          inputs: Iron Rod (#20)
+  29. AI Limiter                        1 x Assembler              Alternate: Plastic AI Limiter  [ALTERNATE]
+          inputs: Quickwire (#24), Plastic (#13)
+  30. Cable                             2 x Assembler              Alternate: Insulated Cable  [ALTERNATE]
+          inputs: Wire (#26), Rubber (#18)
+  31. Encased Industrial Beam           4 x Assembler              Alternate: Encased Industrial Pipe  [ALTERNATE]
+          inputs: Steel Pipe (#21), Concrete (#23)
+  32. Modular Frame                    12 x Assembler              Modular Frame
+          inputs: Reinforced Iron Plate (#25), Iron Rod (#20)
+  33. Nobelisk                          1 x Assembler              Nobelisk
+          inputs: Black Powder (#5), Steel Pipe (#21)
+  34. Stator                            1 x Assembler              Stator
+          inputs: Steel Pipe (#21), Wire (#26)
+  35. Explosive Rebar                   1 x Manufacturer           Explosive Rebar
+          inputs: Iron Rebar (bus), Smokeless Powder (#14), Steel Pipe (#21)
+  36. High-Speed Connector              2 x Manufacturer           Alternate: Silicon High-Speed Connector  [ALTERNATE]
+          inputs: Quickwire (#24), Silica (#4), Circuit Board (#22)
+  37. SAM Fluctuator                    1 x Manufacturer           SAM Fluctuator
+          inputs: Reanimated SAM (#3), Wire (#26), Steel Pipe (#21)
+  38. Smart Plating                     1 x Manufacturer           Alternate: Plastic Smart Plating  [ALTERNATE]
+          inputs: Reinforced Iron Plate (#25), Rotor (bus), Plastic (#13)
+  39. Automated Wiring                  2 x Assembler              Automated Wiring
+          inputs: Stator (#34), Cable (#30)
+  40. Homing Rifle Ammo                 1 x Assembler              Homing Rifle Ammo
+          inputs: Rifle Ammo (#17), High-Speed Connector (#36)
+  41. Computer                          2 x Manufacturer           Computer
+          inputs: Circuit Board (#22), Cable (#30), Plastic (#13)
+  42. Crystal Oscillator                2 x Manufacturer           Alternate: Insulated Crystal Oscillator  [ALTERNATE]
+          inputs: Quartz Crystal (#8), Rubber (#18), AI Limiter (#29)
+  43. Heavy Modular Frame               2 x Manufacturer           Alternate: Heavy Flexible Frame  [ALTERNATE]
+          inputs: Modular Frame (#32), Encased Industrial Beam (#31), Rubber (#18), Screws (#28)
+  44. Pulse Nobelisk                    1 x Assembler              Pulse Nobelisk
+          inputs: Nobelisk (#33), Crystal Oscillator (#42)
+  45. Motor                             1 x Manufacturer           Alternate: Rigor Motor  [ALTERNATE]
+          inputs: Rotor (bus), Stator (#34), Crystal Oscillator (#42)
+  46. Adaptive Control Unit             1 x Manufacturer           Adaptive Control Unit
+          inputs: Automated Wiring (#39), Circuit Board (#22), Heavy Modular Frame (#43), Computer (#41)
+  47. Modular Engine                    1 x Manufacturer           Modular Engine
+          inputs: Motor (#45), Rubber (#18), Smart Plating (#38)
+
+New machines this tier: 148   power used: 3,188.0 MW at 100% clock
+
+Spare capacity from earlier tiers now put to work (machines' worth):
+    Silica                                  0.84
+    Fuel                                    0.84
+    Polymer Resin                           0.83
+    Iron Rod                                0.79
+    Steel Ingot                             0.78
+    Screws                                  0.78
+    Modular Frame                           0.75
+    Iron Plate                              0.74
+    Iron Rebar                              0.67
+    Rubber                                  0.67
+    Concrete                                0.60
+    Petroleum Coke                          0.53
+    Quickwire                               0.50
+    Stator                                  0.50
+    Rotor                                   0.50
+    Caterium Ingot                          0.45
+    Reinforced Iron Plate                   0.44
+    Iron Ingot                              0.37
+    Compacted Coal                          0.36
+    Quartz Crystal                          0.33
+    Black Powder                            0.33
+    Copper Sheet                            0.33
+    Cable                                   0.33
+    Wire                                    0.27
+    Nobelisk                                0.25
+    Steel Pipe                              0.23
+    Copper Ingot                            0.17
+    Heavy Oil Residue                       0.12
+
+Raw input for the whole bus after this tier:
+    Caterium Ore                            221.67/min
+    Coal                                    229.89/min
+    Copper Ore                              312.64/min
+    Crude Oil                             1,046.61/min
+    Iron Ore                                708.14/min
+    Limestone                               150.83/min
+    Raw Quartz                              179.36/min
+    SAM                                     240.00/min
+    Sulfur                                  224.33/min
+    Water                                   629.50/min

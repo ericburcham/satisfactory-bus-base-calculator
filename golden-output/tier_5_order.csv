@@ -1,0 +1,24 @@
+step,item,new_machines,building,recipe,alternate,excess_target,sink_disposal,inputs,byproducts,mw
+1,Heavy Oil Residue,8,Refinery,Alternate: Heavy Oil Residue,yes,yes,,Crude Oil,Polymer Resin,240
+2,Polymer Resin,5,Refinery,Alternate: Polymer Resin,yes,yes,,Crude Oil,Heavy Oil Residue,150
+3,Compacted Coal,2,Assembler,Alternate: Compacted Coal,yes,,,Coal; Sulfur,,30
+4,Copper Sheet,1,Refinery,Alternate: Steamed Copper Sheet,yes,,,Copper Ingot (bus); Water,,30
+5,Fuel,5,Refinery,Residual Fuel,,yes,,Heavy Oil Residue (#1),,150
+6,Petroleum Coke,2,Refinery,Petroleum Coke,,yes,,Heavy Oil Residue (#1),,60
+7,Black Powder,1,Assembler,Alternate: Fine Black Powder,yes,,,Sulfur; Compacted Coal (#3),,15
+8,Fabric,1,Refinery,Alternate: Polyester Fabric,yes,yes,,Polymer Resin (#2); Water,,30
+9,Plastic,9,Refinery,Residual Plastic,,yes,,Polymer Resin (#2); Water,,270
+10,Empty Canister,4,Constructor,Empty Canister,,yes,,Plastic (#9),,16
+11,Nobelisk,1,Assembler,Nobelisk,,,,Black Powder (#7); Steel Pipe (bus),,15
+12,Rubber,2,Refinery,Alternate: Recycled Rubber,yes,yes,,Plastic (#9); Fuel (#5),,60
+13,Smokeless Powder,2,Refinery,Smokeless Powder,,yes,,Black Powder (#7); Heavy Oil Residue (#1),,60
+14,Steel Ingot,1,Foundry,Alternate: Coke Steel Ingot,yes,,,Iron Ore; Petroleum Coke (#6),,16
+15,Turbofuel,3,Refinery,Turbofuel,yes,yes,,Fuel (#5); Compacted Coal (#3),,90
+16,Circuit Board,1,Assembler,Alternate: Electrode Circuit Board,yes,yes,,Rubber (#12); Petroleum Coke (#6),,15
+17,Cluster Nobelisk,1,Assembler,Cluster Nobelisk,,yes,,Nobelisk (#11); Smokeless Powder (#13),,15
+18,Packaged Fuel,1,Packager,Packaged Fuel,,yes,,Fuel (#5); Empty Canister (#10),,10
+19,Packaged Heavy Oil Residue,1,Packager,Packaged Heavy Oil Residue,,yes,,Heavy Oil Residue (#1); Empty Canister (#10),,10
+20,Packaged Oil,1,Packager,Packaged Oil,,yes,,Crude Oil; Empty Canister (#10),,10
+21,Packaged Turbofuel,1,Packager,Packaged Turbofuel,,yes,,Turbofuel (#15); Empty Canister (#10),,10
+22,Packaged Water,1,Packager,Packaged Water,,yes,,Water; Empty Canister (#10),,10
+23,Rifle Ammo,1,Assembler,Rifle Ammo,,yes,,Copper Sheet (#4); Smokeless Powder (#13),,15

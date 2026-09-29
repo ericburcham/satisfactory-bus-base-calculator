@@ -1,0 +1,67 @@
+step,item,new_machines,building,recipe,alternate,excess_target,sink_disposal,inputs,byproducts,mw
+1,Heavy Oil Residue,23,Refinery,Alternate: Heavy Oil Residue,yes,,,Crude Oil,Polymer Resin,690
+2,Polymer Resin,14,Refinery,Alternate: Polymer Resin,yes,,,Crude Oil,Heavy Oil Residue,420
+3,Alumina Solution,6,Refinery,Alternate: Sloppy Alumina,yes,,,Bauxite; Water,,180
+4,Copper Ingot,33,Refinery,Alternate: Pure Copper Ingot,yes,,,Copper Ore; Water,,990
+5,Iron Ingot,1,Refinery,Alternate: Pure Iron Ingot,yes,,,Iron Ore; Water,,30
+6,Quartz Crystal,1,Refinery,Alternate: Pure Quartz Crystal,yes,,,Raw Quartz; Water,,30
+7,Sulfuric Acid,5,Refinery,Sulfuric Acid,,,,Sulfur; Water,,150
+8,Copper Powder,3,Constructor,Copper Powder,,yes,,Copper Ingot (#4),,12
+9,Fuel,12,Refinery,Residual Fuel,,,,Heavy Oil Residue (#1),,360
+10,Petroleum Coke,10,Refinery,Petroleum Coke,,,,Heavy Oil Residue (#1),,300
+11,Copper Sheet,2,Refinery,Alternate: Steamed Copper Sheet,yes,,,Copper Ingot (#4); Water,,60
+12,Plastic,38,Refinery,Residual Plastic,,,,Polymer Resin (#2); Water,,1140
+13,Aluminum Scrap,8,Refinery,Alternate: Electrode Aluminum Scrap,yes,,,Alumina Solution (#3); Petroleum Coke (#10),Water,240
+14,Caterium Ingot,3,Foundry,Alternate: Tempered Caterium Ingot,yes,,,Caterium Ore; Petroleum Coke (#10),,48
+15,Iron Plate,3,Assembler,Alternate: Coated Iron Plate,yes,,,Iron Ingot (#5); Plastic (#12),,45
+16,Rubber,12,Refinery,Alternate: Recycled Rubber,yes,,,Plastic (#12); Fuel (#9),,360
+17,Steel Ingot,2,Foundry,Alternate: Coke Steel Ingot,yes,,,Iron Ore; Petroleum Coke (#10),,32
+18,Turbofuel,3,Blender,Alternate: Turbo Blend Fuel,yes,,,Fuel (#9); Heavy Oil Residue (#1); Sulfur; Petroleum Coke (#10),,225
+19,Aluminum Ingot,37,Smelter,Alternate: Pure Aluminum Ingot,,,,Aluminum Scrap (#13),,148
+20,Steel Pipe,6,Constructor,Steel Pipe,,,,Steel Ingot (#17),,24
+21,Circuit Board,12,Assembler,Alternate: Electrode Circuit Board,yes,,,Rubber (#16); Petroleum Coke (#10),,180
+22,Concrete,2,Assembler,Alternate: Rubber Concrete,yes,,,Limestone; Rubber (#16),,30
+23,Quickwire,6,Assembler,Alternate: Fused Quickwire,yes,,,Caterium Ingot (#14); Copper Ingot (#4),,90
+24,Reinforced Iron Plate,13,Assembler,Alternate: Adhered Iron Plate,yes,,,Iron Plate (#15); Rubber (#16),,195
+25,Wire,5,Assembler,Alternate: Fused Wire,yes,,,Copper Ingot (#4); Caterium Ingot (#14),,75
+26,Nitric Acid,7,Blender,Nitric Acid,,yes,,Nitrogen Gas; Water; Iron Plate (#15),,525
+27,Aluminum Casing,6,Constructor,Aluminum Casing,,,,Aluminum Ingot (#19),,24
+28,Empty Fluid Tank,4,Constructor,Empty Fluid Tank,,yes,,Aluminum Ingot (#19),,16
+29,Steel Beam,5,Constructor,Alternate: Aluminum Beam,yes,,,Aluminum Ingot (#19),,20
+30,AI Limiter,4,Assembler,Alternate: Plastic AI Limiter,yes,,,Quickwire (#23); Plastic (#12),,60
+31,Cable,1,Assembler,Alternate: Insulated Cable,yes,,,Wire (#25); Rubber (#16),,15
+32,Quartz Crystal,1,Refinery,Alternate: Quartz Purification,yes,,,Raw Quartz; Nitric Acid (#26),Dissolved Silica,30
+33,Rocket Fuel,3,Blender,Rocket Fuel,,yes,,Turbofuel (#18); Nitric Acid (#26),Compacted Coal,225
+34,Stator,8,Assembler,Stator,,,,Steel Pipe (#20); Wire (#25),,120
+35,Encased Uranium Cell,6,Blender,Encased Uranium Cell,,yes,,Uranium; Concrete (#22); Sulfuric Acid (#7),Sulfuric Acid,450
+36,Screws,7,Constructor,Alternate: Steel Screws,yes,,,Steel Beam (#29),,28
+37,Electromagnetic Control Rod,6,Assembler,Electromagnetic Control Rod,,yes,,Stator (#34); AI Limiter (#30),,90
+38,Encased Industrial Beam,3,Assembler,Encased Industrial Beam,,,,Steel Beam (#29); Concrete (#22),,45
+39,Heat Sink,3,Assembler,Alternate: Heat Exchanger,yes,yes,,Aluminum Casing (#27); Rubber (#16),,45
+40,Packaged Nitric Acid,1,Packager,Packaged Nitric Acid,,yes,,Nitric Acid (#26); Empty Fluid Tank (#28),,10
+41,Packaged Nitrogen Gas,1,Packager,Packaged Nitrogen Gas,,yes,,Nitrogen Gas; Empty Fluid Tank (#28),,10
+42,Packaged Rocket Fuel,1,Packager,Packaged Rocket Fuel,,yes,,Rocket Fuel (#33); Empty Fluid Tank (#28),,10
+43,Computer,6,Manufacturer,Computer,,,,Circuit Board (#21); Cable (#31); Plastic (#12),,330
+44,Crystal Oscillator,7,Manufacturer,Alternate: Insulated Crystal Oscillator,yes,,,Quartz Crystal (#32); Rubber (#16); AI Limiter (#30),,385
+45,Nuke Nobelisk,1,Manufacturer,Nuke Nobelisk,,yes,,Nobelisk (bus); Encased Uranium Cell (#35); Smokeless Powder (bus); AI Limiter (#30),,55
+46,Modular Frame,6,Assembler,Alternate: Bolted Frame,yes,,,Reinforced Iron Plate (#24); Screws (#36),,90
+47,Rotor,3,Assembler,Alternate: Copper Rotor,yes,,,Copper Sheet (#11); Screws (#36),,45
+48,Radio Control Unit,7,Manufacturer,Radio Control Unit,,,,Aluminum Casing (#27); Crystal Oscillator (#44); Computer (#43),,385
+49,Motor,2,Manufacturer,Alternate: Rigor Motor,yes,,,Rotor (#47); Stator (#34); Crystal Oscillator (#44),,110
+50,Smart Plating,1,Manufacturer,Alternate: Plastic Smart Plating,yes,,,Reinforced Iron Plate (#24); Rotor (#47); Plastic (#12),,55
+51,Versatile Framework,1,Manufacturer,Alternate: Flexible Framework,yes,,,Modular Frame (#46); Steel Beam (#29); Rubber (#16),,55
+52,Heavy Modular Frame,2,Manufacturer,Alternate: Heavy Flexible Frame,yes,,,Modular Frame (#46); Encased Industrial Beam (#38); Rubber (#16); Screws (#36),,110
+53,Uranium Fuel Rod,5,Manufacturer,Alternate: Uranium Fuel Unit,yes,yes,,Encased Uranium Cell (#35); Electromagnetic Control Rod (#37); Crystal Oscillator (#44); Rotor (#47),,275
+54,Magnetic Field Generator,1,Assembler,Magnetic Field Generator,,yes,,Versatile Framework (#51); Electromagnetic Control Rod (#37),,15
+55,Uranium Waste,12,Nuclear Power Plant,Burn Uranium Fuel Rod,,,,Uranium Fuel Rod (#53); Water,,-30000
+56,Cooling System,2,Blender,Alternate: Cooling Device,yes,yes,,Heat Sink (#39); Motor (#49); Nitrogen Gas,,150
+57,Modular Engine,3,Manufacturer,Modular Engine,,,,Motor (#49); Rubber (#16); Smart Plating (#50),,165
+58,Fused Modular Frame,2,Blender,Alternate: Heat-Fused Frame,yes,yes,,Heavy Modular Frame (#52); Aluminum Ingot (#19); Nitric Acid (#26); Fuel (#9),,150
+59,Turbo Motor,2,Manufacturer,Alternate: Turbo Electric Motor,yes,yes,,Motor (#49); Radio Control Unit (#48); Electromagnetic Control Rod (#37); Rotor (#47),,110
+60,Pressure Conversion Cube,2,Assembler,Pressure Conversion Cube,,yes,,Fused Modular Frame (#58); Radio Control Unit (#48),,30
+61,Non-Fissile Uranium,4,Blender,Alternate: Fertile Uranium,yes,yes,,Uranium; Uranium Waste (#55); Nitric Acid (#26); Sulfuric Acid (#7),Water,300
+62,Thermal Propulsion Rocket,1,Manufacturer,Thermal Propulsion Rocket,,yes,,Modular Engine (#57); Turbo Motor (#59); Cooling System (#56); Fused Modular Frame (#58),,55
+63,Encased Plutonium Cell,2,Particle Accelerator,Alternate: Instant Plutonium Cell,yes,yes,,Non-Fissile Uranium (#61); Aluminum Casing (#27),,1000.0
+64,Nuclear Pasta,1,Particle Accelerator,Nuclear Pasta,,yes,,Copper Powder (#8); Pressure Conversion Cube (#60),,1000.0
+65,Plutonium Pellet,1,Particle Accelerator,Plutonium Pellet,,yes,,Non-Fissile Uranium (#61); Uranium Waste (#55),,500.0
+66,Plutonium Fuel Rod,1,Assembler,Alternate: Plutonium Fuel Unit,yes,yes,,Encased Plutonium Cell (#63); Pressure Conversion Cube (#60),,15

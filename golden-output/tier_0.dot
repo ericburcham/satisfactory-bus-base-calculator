@@ -1,0 +1,24 @@
+digraph tier {
+  rankdir=LR; node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10, fillcolor="#ffffff"];
+  edge [color="#888888", arrowsize=0.6];
+  labelloc=t; label="Tier 0 - Onboarding: 13 new machines"; fontsize=18;
+  "Recipe_Concrete_C" [label="#1 Concrete\n1 x Constructor\nConcrete", penwidth=2.5, color="#2a7a2a"];
+  "in_Desc_Stone_C" -> "Recipe_Concrete_C";
+  "Recipe_IngotCopper_C" [label="#2 Copper Ingot\n2 x Smelter\nCopper Ingot"];
+  "in_Desc_OreCopper_C" -> "Recipe_IngotCopper_C";
+  "Recipe_IngotIron_C" [label="#3 Iron Ingot\n2 x Smelter\nIron Ingot"];
+  "in_Desc_OreIron_C" -> "Recipe_IngotIron_C";
+  "Recipe_IronPlate_C" [label="#4 Iron Plate\n1 x Constructor\nIron Plate", penwidth=2.5, color="#2a7a2a"];
+  "Recipe_IngotIron_C" -> "Recipe_IronPlate_C";
+  "Recipe_IronRod_C" [label="#5 Iron Rod\n2 x Constructor\nIron Rod", penwidth=2.5, color="#2a7a2a"];
+  "Recipe_IngotIron_C" -> "Recipe_IronRod_C";
+  "Recipe_Wire_C" [label="#6 Wire\n3 x Constructor\nWire", penwidth=2.5, color="#2a7a2a"];
+  "Recipe_IngotCopper_C" -> "Recipe_Wire_C";
+  "Recipe_Cable_C" [label="#7 Cable\n1 x Constructor\nCable", penwidth=2.5, color="#2a7a2a"];
+  "Recipe_Wire_C" -> "Recipe_Cable_C";
+  "Recipe_Screw_C" [label="#8 Screws\n1 x Constructor\nScrews", penwidth=2.5, color="#2a7a2a"];
+  "Recipe_IronRod_C" -> "Recipe_Screw_C";
+  "in_Desc_OreCopper_C" [label="Copper Ore\n(raw)", shape=ellipse, fillcolor="#eeeeee"];
+  "in_Desc_Stone_C" [label="Limestone\n(raw)", shape=ellipse, fillcolor="#eeeeee"];
+  "in_Desc_OreIron_C" [label="Iron Ore\n(raw)", shape=ellipse, fillcolor="#eeeeee"];
+}

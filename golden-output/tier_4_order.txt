@@ -1,0 +1,64 @@
+TIER 4 - NEW CAPACITY (build top to bottom; whole machines at 100% clock)
+
+New items this tier (one excess machine each):
+    Automated Wiring                        2.50/min excess  via Automated Wiring
+    Encased Industrial Beam                 4.00/min excess  via Alternate: Encased Industrial Pipe  [ALTERNATE]
+    Motor                                   5.00/min excess  via Motor
+    Stator                                  5.00/min excess  via Stator
+
+Build order:
+   1. Copper Ingot                      2 x Smelter                Copper Ingot
+          inputs: Copper Ore
+   2. Silica                            1 x Constructor            Silica
+          inputs: Raw Quartz
+   3. Compacted Coal                    1 x Assembler              Alternate: Compacted Coal  [ALTERNATE]
+          inputs: Coal, Sulfur
+   4. Copper Sheet                      1 x Constructor            Copper Sheet
+          inputs: Copper Ingot (#1)
+   5. Concrete                          1 x Assembler              Alternate: Fine Concrete  [ALTERNATE]
+          inputs: Silica (#2), Limestone
+   6. Steel Ingot                      12 x Foundry                Alternate: Compacted Steel Ingot  [ALTERNATE]
+          inputs: Iron Ore, Compacted Coal (#3)
+   7. Wire                              2 x Assembler              Alternate: Fused Wire  [ALTERNATE]
+          inputs: Copper Ingot (#1), Caterium Ingot (bus)
+   8. Cable                             2 x Constructor            Cable
+          inputs: Wire (#7)
+   9. Iron Rod                          1 x Constructor            Alternate: Steel Rod  [ALTERNATE]
+          inputs: Steel Ingot (#6)
+  10. Steel Pipe                        4 x Constructor            Steel Pipe
+          inputs: Steel Ingot (#6)
+  11. Screws                            5 x Constructor            Screws
+          inputs: Iron Rod (#9)
+  12. Encased Industrial Beam           1 x Assembler              Alternate: Encased Industrial Pipe  [ALTERNATE]
+          inputs: Steel Pipe (#10), Concrete (#5)
+  13. Stator                            4 x Assembler              Stator
+          inputs: Steel Pipe (#10), Wire (#7)
+  14. Automated Wiring                  1 x Assembler              Automated Wiring
+          inputs: Stator (#13), Cable (#8)
+  15. Rotor                             1 x Assembler              Rotor
+          inputs: Iron Rod (#9), Screws (#11)
+  16. Motor                             1 x Assembler              Motor
+          inputs: Rotor (#15), Stator (#13)
+
+New machines this tier: 40   power used: 436.0 MW at 100% clock
+
+Spare capacity from earlier tiers now put to work (machines' worth):
+    Copper Ingot                            0.97
+    Wire                                    0.94
+    Copper Sheet                            0.85
+    Rotor                                   0.82
+    Iron Rod                                0.80
+    Steel Pipe                              0.80
+    Steel Ingot                             0.77
+    Compacted Coal                          0.61
+    Caterium Ingot                          0.53
+    Screws                                  0.26
+
+Raw input for the whole bus after this tier:
+    Caterium Ore                            159.58/min
+    Coal                                    141.47/min
+    Copper Ore                              249.78/min
+    Iron Ore                                418.58/min
+    Limestone                                69.00/min
+    Raw Quartz                               88.60/min
+    Sulfur                                  152.30/min
