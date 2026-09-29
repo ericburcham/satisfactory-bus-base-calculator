@@ -1,4 +1,5 @@
 using Satisfactory.Planner.Core.Configuration;
+using Satisfactory.Planner.Core.Numerics;
 using Satisfactory.Planner.Core.Progression;
 using Satisfactory.Planner.Core.Tiers;
 using Satisfactory.Planner.Reporting.Formatting;
@@ -13,7 +14,8 @@ namespace Satisfactory.Planner.Reporting.Writers;
 /// Per tier: the new items, new machines, alternate recipes among the new machine groups, reused machines' worth, power
 /// used, and the change in raw input (excluding water); then the running totals of machines, power used and power
 /// generated, and the tier's total raw input (excluding water). The raw and reused sums reproduce Python 3.12+
-/// <c>sum()</c>, which adds floats with compensated summation; the running totals use plain <c>+=</c> as the Python does.
+/// <c>sum()</c>, which adds floats with compensated summation (<see cref="PythonNumerics.Sum"/>); the running totals
+/// use plain <c>+=</c> as the Python does.
 /// </remarks>
 public sealed class SummaryWriter : ISummaryWriter
 {
@@ -99,8 +101,8 @@ public sealed class SummaryWriter : ISummaryWriter
 
     /// <summary>Python <c>sum(q for c, q in raw.items() if c != "Desc_Water_C")</c> (Python 3.12+ float sum).</summary>
     private static double RawExcludingWater(TierResult result) =>
-        PythonFloatSum.Of(result.RawInput.Where(kv => kv.Key != PlannerConstants.Water).Select(kv => kv.Value));
+        PythonNumerics.Sum(result.RawInput.Where(kv => kv.Key != PlannerConstants.Water).Select(kv => kv.Value));
 
     /// <summary>Python <c>sum(reused.values())</c> (Python 3.12+ float sum).</summary>
-    private static double Reused(TierResult result) => PythonFloatSum.Of(result.Reused.Values);
+    private static double Reused(TierResult result) => PythonNumerics.Sum(result.Reused.Values);
 }

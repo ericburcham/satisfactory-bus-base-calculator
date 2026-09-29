@@ -218,6 +218,95 @@ public sealed class PythonNumericsTests
         });
     }
 
+    [Test]
+    public void Sum_MatchesPythonVectorsBitForBit()
+    {
+        var vectors = PythonSumVectors.Instance.Sums;
+
+        // Compared as bit patterns: a sum that Python returns as the int 0 (empty list, only int zeros) is 0.0 here.
+        Assert.That(vectors, Has.Count.GreaterThan(1000));
+        PythonNumberVectors.AssertAllMatch(
+            "sum(values)",
+            vectors.Select(v => (
+                $"{v.Description} = {v.Sum}",
+                Bits(PythonNumberVectors.ParseRepr(v.Sum)),
+                Bits(PythonNumerics.Sum(v.Doubles)))));
+    }
+
+    [Test]
+    public void Sum_IsCompensatedNotLeftToRight()
+    {
+        double[] tenths = [0.1, 0.2, 0.3];
+        double plain = 0.0;
+        foreach (double x in tenths)
+        {
+            plain += x;
+        }
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(PythonNumerics.Sum(tenths), Is.EqualTo(0.6), "sum([0.1, 0.2, 0.3])");
+            Assert.That(plain, Is.EqualTo(0.6000000000000001), "plain left-to-right addition differs");
+            Assert.That(PythonNumerics.Sum([1.0, 1e16, -1e16]), Is.EqualTo(1.0), "sum([1.0, 1e16, -1e16])");
+            Assert.That(PythonNumerics.Sum([1e16, 1.0, 1.0]), Is.EqualTo(1.0000000000000002e16), "sum([1e16, 1.0, 1.0])");
+        });
+    }
+
+    [Test]
+    public void Sum_OfNothing_IsZero()
+    {
+        Assert.That(Bits(PythonNumerics.Sum([])), Is.EqualTo(Bits(0.0)));
+    }
+
+    [Test]
+    public void Sum_StartsFromTheIntZero_SoANegativeZeroBecomesPositive()
+    {
+        Assert.Multiple(() =>
+        {
+            Assert.That(Bits(PythonNumerics.Sum([-0.0])), Is.EqualTo(Bits(0.0)), "0 + -0.0 is 0.0");
+            Assert.That(Bits(PythonNumerics.Sum([-1.0, 1.0, -0.0])), Is.EqualTo(Bits(0.0)));
+        });
+    }
+
+    [Test]
+    public void Sum_KeepsInfinitiesAndNaN()
+    {
+        Assert.Multiple(() =>
+        {
+            Assert.That(PythonNumerics.Sum([double.PositiveInfinity, 1.0]), Is.EqualTo(double.PositiveInfinity));
+            Assert.That(PythonNumerics.Sum([1.0, double.NegativeInfinity]), Is.EqualTo(double.NegativeInfinity));
+            Assert.That(PythonNumerics.Sum([1e308, 1e308, -1e308]), Is.EqualTo(double.PositiveInfinity), "overflow stays inf");
+            Assert.That(PythonNumerics.Sum([double.PositiveInfinity, double.NegativeInfinity]), Is.NaN);
+            Assert.That(PythonNumerics.Sum([1.0, double.NaN]), Is.NaN);
+        });
+    }
+
+    [Test]
+    public void Sum_EnumeratesTheSequenceOnce()
+    {
+        int enumerations = 0;
+        IEnumerable<double> Values()
+        {
+            enumerations++;
+            yield return 0.5;
+            yield return 0.25;
+        }
+
+        double sum = PythonNumerics.Sum(Values());
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(sum, Is.EqualTo(0.75));
+            Assert.That(enumerations, Is.EqualTo(1));
+        });
+    }
+
+    [Test]
+    public void Sum_Null_Throws()
+    {
+        Assert.That(() => PythonNumerics.Sum(null!), Throws.ArgumentNullException);
+    }
+
     private static string Bits(double value) =>
         double.IsNaN(value)
             ? "nan"

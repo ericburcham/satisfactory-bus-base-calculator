@@ -40,8 +40,8 @@ public sealed class ResourceCostTable
     /// Natural resources per unit of <paramref name="item"/> when made with <paramref name="recipe"/> (Python
     /// <c>recipe_cost</c>): <c>max(0.0, cin - credit) / amount</c>, where <c>cin</c> sums the ingredients' costs
     /// (unknown ones are infinite) and <c>credit</c> sums the costs of the other products (unknown ones count 0) that
-    /// earn credit. The product entry is the first one that is <paramref name="item"/>; any other entry, even of the
-    /// same item, is a different product.
+    /// earn credit. Both sums are Python's compensated <c>sum()</c> (<see cref="PythonNumerics.Sum"/>). The product entry
+    /// is the first one that is <paramref name="item"/>; any other entry, even of the same item, is a different product.
     /// </summary>
     /// <param name="recipe">The recipe.</param>
     /// <param name="item">A product of the recipe.</param>
@@ -50,23 +50,15 @@ public sealed class ResourceCostTable
     public double CostOf(Recipe recipe, ItemId item)
     {
         ArgumentNullException.ThrowIfNull(recipe);
-        double cin = 0.0;
-        foreach (ItemAmount ingredient in recipe.Ingredients)
-        {
-            cin += CostOrInfinity(ingredient.Item) * ingredient.Amount;
-        }
-
+        // Python: cin = sum(cost.get(i["item"], float("inf")) * i["amount"] for i in r["ingredients"]).
+        double cin = PythonNumerics.Sum(recipe.Ingredients.Select(i => CostOrInfinity(i.Item) * i.Amount));
         int productIndex = IndexOfProduct(recipe, item);
-        double credit = 0.0;
-        for (int index = 0; index < recipe.Products.Count; index++)
-        {
-            ItemAmount other = recipe.Products[index];
-            if (index != productIndex && _credit.EarnsCredit(other.Item))
-            {
-                credit += _costs.GetValueOrDefault(other.Item, 0.0) * other.Amount;
-            }
-        }
 
+        // Python: credit = sum(cost.get(q["item"], 0) * q["amount"] for q in r["products"]
+        //                      if q is not p and q["item"] not in self.no_credit). An unknown item's int 0 is passed as 0.0.
+        double credit = PythonNumerics.Sum(recipe.Products
+            .Where((other, index) => index != productIndex && _credit.EarnsCredit(other.Item))
+            .Select(other => _costs.GetValueOrDefault(other.Item, 0.0) * other.Amount));
         return PythonNumerics.Max(0.0, cin - credit) / recipe.Products[productIndex].Amount;
     }
 

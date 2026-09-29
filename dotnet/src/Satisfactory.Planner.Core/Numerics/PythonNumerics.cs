@@ -6,7 +6,8 @@ namespace Satisfactory.Planner.Core.Numerics;
 
 /// <summary>
 /// Python float semantics that the planner's results and reports depend on: <c>round(x, n)</c>,
-/// <c>f"{x:.{d}f}"</c> / <c>f"{x:,.{d}f}"</c>, <c>repr(x)</c> and the two-argument <c>max</c> / <c>min</c>.
+/// <c>f"{x:.{d}f}"</c> / <c>f"{x:,.{d}f}"</c>, <c>repr(x)</c>, the compensated builtin <c>sum</c> and the
+/// two-argument <c>max</c> / <c>min</c>.
 /// </summary>
 /// <remarks>
 /// Rounding works on the exact binary value of the double with <see cref="BigInteger"/> arithmetic and rounds
@@ -154,6 +155,61 @@ public static class PythonNumerics
         }
 
         return sign + digits[..pointPosition] + "." + digits[pointPosition..];
+    }
+
+    /// <summary>
+    /// Python 3.12+ builtin <c>sum(values)</c> of floats with the default start <c>0</c>, bit for bit. It is not a
+    /// plain left-to-right addition: CPython adds floats with Neumaier's compensated (improved Kahan-Babuska)
+    /// summation, so <c>sum([0.1, 0.2, 0.3])</c> is <c>0.6</c> while <c>0.1 + 0.2 + 0.3</c> is
+    /// <c>0.6000000000000001</c>.
+    /// </summary>
+    /// <param name="values">The values, in iteration order.</param>
+    /// <returns>The sum; <c>0.0</c> for an empty sequence (Python returns the int <c>0</c>).</returns>
+    /// <remarks>
+    /// <para>
+    /// Port of the float path of CPython 3.14's <c>builtin_sum_impl</c> (<c>Python/bltinmodule.c</c>): the int start
+    /// <c>0</c> plus the first item is a plain addition (<c>0 + x</c>, which turns <c>-0.0</c> into <c>0.0</c>); every
+    /// later item <c>x</c> is added with <c>cs_add</c>: <c>t = hi + x</c>, and the lost low-order part is accumulated
+    /// in <c>lo</c> as <c>(hi - t) + x</c> when <c>|hi| &gt;= |x|</c>, else <c>(x - t) + hi</c>; then <c>hi = t</c>.
+    /// The result (<c>cs_to_double</c>) is <c>hi + lo</c> when <c>lo</c> is non-zero and finite, else <c>hi</c>, so an
+    /// infinite or overflowed sum is not turned into NaN by the compensation.
+    /// </para>
+    /// <para>
+    /// A Python int item is passed as its double value. That is exact for the int zeros that occur in the planner's
+    /// sums (<c>cost.get(item, 0) * amount</c> with an int amount): CPython adds an int zero before the first float
+    /// exactly, and one after it with <c>cs_add(0.0)</c>, which both leave the result unchanged here as well.
+    /// </para>
+    /// </remarks>
+    public static double Sum(IEnumerable<double> values)
+    {
+        ArgumentNullException.ThrowIfNull(values);
+        double hi = 0.0;
+        double lo = 0.0;
+        bool first = true;
+        foreach (double x in values)
+        {
+            if (first)
+            {
+                // Integer path of builtin_sum_impl: PyNumber_Add(0, x) is 0.0 + x; the float path starts from it.
+                hi = 0.0 + x;
+                first = false;
+                continue;
+            }
+
+            double t = hi + x;
+            if (Math.Abs(hi) >= Math.Abs(x))
+            {
+                lo += (hi - t) + x;
+            }
+            else
+            {
+                lo += (x - t) + hi;
+            }
+
+            hi = t;
+        }
+
+        return lo != 0 && double.IsFinite(lo) ? hi + lo : hi;
     }
 
     /// <summary>Python <c>max(a, b)</c> on two floats: <c>b if b &gt; a else a</c> (NaN behaviour included).</summary>

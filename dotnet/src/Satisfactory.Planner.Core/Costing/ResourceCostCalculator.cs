@@ -11,7 +11,8 @@ namespace Satisfactory.Planner.Core.Costing;
 /// Python <c>_costs</c>: the natural resources needed per unit of each item, taking the cheapest recipe for everything
 /// (Bellman-Ford style relaxation over the tier's recipes, repeated until nothing changes or
 /// <see cref="PlannerConstants.CostRelaxationPasses"/> passes). Extractable items cost their weight. A multi-output
-/// recipe's other products are credited at their own cost unless they earn no credit.
+/// recipe's other products are credited at their own cost unless they earn no credit. The ingredient cost and the credit
+/// are Python <c>sum()</c>s, reproduced with <see cref="PythonNumerics.Sum"/> (compensated, not left to right).
 /// </summary>
 public sealed class ResourceCostCalculator : IResourceCostCalculator
 {
@@ -63,11 +64,9 @@ public sealed class ResourceCostCalculator : IResourceCostCalculator
     private static bool Relax(
         Recipe recipe, OrderedDictionary<ItemId, double> cost, IExtractorCatalog extractors, CreditPolicy credit)
     {
-        double cin = 0.0;
-        foreach (ItemAmount ingredient in recipe.Ingredients)
-        {
-            cin += (cost.TryGetValue(ingredient.Item, out double c) ? c : double.PositiveInfinity) * ingredient.Amount;
-        }
+        // Python: cin = sum(cost.get(i["item"], INF) * i["amount"] for i in r["ingredients"]) (compensated sum).
+        double cin = PythonNumerics.Sum(recipe.Ingredients.Select(
+            i => (cost.TryGetValue(i.Item, out double c) ? c : double.PositiveInfinity) * i.Amount));
 
         if (cin == double.PositiveInfinity)
         {
@@ -83,18 +82,10 @@ public sealed class ResourceCostCalculator : IResourceCostCalculator
                 continue;
             }
 
+            // Python: credit = sum(cost[q["item"]] * q["amount"] for q in r["products"]
+            //                     if q is not p and q["item"] in cost and q["item"] not in self.no_credit).
             // "q is not p": every other product entry, even one of the same item.
-            double byproductCredit = 0.0;
-            for (int otherIndex = 0; otherIndex < recipe.Products.Count; otherIndex++)
-            {
-                ItemAmount other = recipe.Products[otherIndex];
-                if (otherIndex != productIndex
-                    && cost.TryGetValue(other.Item, out double otherCost)
-                    && credit.EarnsCredit(other.Item))
-                {
-                    byproductCredit += otherCost * other.Amount;
-                }
-            }
+            double byproductCredit = PythonNumerics.Sum(ByproductCredits(recipe, productIndex, cost, credit));
 
             double unitCost = PythonNumerics.Max(0.0, cin - byproductCredit) / product.Amount;
             double current = cost.TryGetValue(product.Item, out double known) ? known : double.PositiveInfinity;
@@ -106,5 +97,21 @@ public sealed class ResourceCostCalculator : IResourceCostCalculator
         }
 
         return changed;
+    }
+
+    /// <summary>The credit terms of the products other than the one at <paramref name="productIndex"/>, in order.</summary>
+    private static IEnumerable<double> ByproductCredits(
+        Recipe recipe, int productIndex, OrderedDictionary<ItemId, double> cost, CreditPolicy credit)
+    {
+        for (int otherIndex = 0; otherIndex < recipe.Products.Count; otherIndex++)
+        {
+            ItemAmount other = recipe.Products[otherIndex];
+            if (otherIndex != productIndex
+                && cost.TryGetValue(other.Item, out double otherCost)
+                && credit.EarnsCredit(other.Item))
+            {
+                yield return otherCost * other.Amount;
+            }
+        }
     }
 }

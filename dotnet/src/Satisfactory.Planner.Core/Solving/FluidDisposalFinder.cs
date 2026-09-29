@@ -66,19 +66,14 @@ public sealed class FluidDisposalFinder : IFluidDisposalFinder
         product.Item == PlannerConstants.Water
         || (!_context.Data.IsFluid(product.Item) && !PlannerConstants.Unsinkable.Contains(product.Item));
 
-    private double ExtraCost(Recipe recipe, ItemId fluid)
-    {
-        double extra = 0.0;
-        foreach (ItemAmount ingredient in recipe.Ingredients)
-        {
-            if (ingredient.Item != fluid)
-            {
-                extra += _costs.Costs.GetValueOrDefault(ingredient.Item, 0.0) * ingredient.Amount;
-            }
-        }
-
-        return extra;
-    }
+    /// <summary>
+    /// Python <c>extra(r)</c>: <c>sum(self.cost.get(i["item"], 0) * i["amount"] for i in r["ingredients"] if
+    /// i["item"] != fluid)</c>, with Python's compensated float sum (an unknown item's int 0 is passed as 0.0).
+    /// </summary>
+    private double ExtraCost(Recipe recipe, ItemId fluid) =>
+        PythonNumerics.Sum(recipe.Ingredients
+            .Where(i => i.Item != fluid)
+            .Select(i => _costs.Costs.GetValueOrDefault(i.Item, 0.0) * i.Amount));
 
     private static int Compare((bool, bool, double, bool, string) x, (bool, bool, double, bool, string) y)
     {
