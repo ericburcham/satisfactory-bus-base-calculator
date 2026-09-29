@@ -58,3 +58,6 @@ nunit-*.xml
 
 # Temporary Python reference implementation (not part of the .NET port)
 /python/
+
+# Default output folder of the planner (--out tiers) when run from the repository root
+/tiers/

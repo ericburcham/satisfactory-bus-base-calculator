@@ -62,7 +62,7 @@ public sealed class ProductionSolver : IProductionSolver
                 Recipe recipe = context.DisposalFinder.Find(fluid);
                 run.State.Recipes[recipe.Id] = recipe;
                 ItemAmount use = recipe.Ingredients.First(i => i.Item == fluid);
-                AddTo(run.State.Runs, recipe.Id, q / (use.Amount * 60 / recipe.TimeSeconds));
+                AddTo(run.State.Runs, recipe.Id, q / recipe.PerMinute(use));
                 AddTo(disposal, fluid, q);
                 disposalRecipes[fluid] = recipe;
             }
@@ -223,7 +223,7 @@ public sealed class ProductionSolver : IProductionSolver
                     continue;
                 }
 
-                double rate = existing.MainProduct.Amount * 60 / existing.TimeSeconds;
+                double rate = existing.PerMinute(existing.MainProduct);
                 double use = PythonNumerics.Min(head, q / rate);
                 State.Recipes[id] = existing;
                 AddTo(State.Runs, id, use);
@@ -239,7 +239,7 @@ public sealed class ProductionSolver : IProductionSolver
                 ?? throw new PlannerException($"No automatable source for {_context.Tier.Data.ItemName(item)}");
             State.Recipes[recipe.Id] = recipe;
             ItemAmount product = recipe.Products.First(p => p.Item == item);
-            AddTo(State.Runs, recipe.Id, q / (product.Amount * 60 / recipe.TimeSeconds));
+            AddTo(State.Runs, recipe.Id, q / recipe.PerMinute(product));
         }
 
         private bool CutExtraction(ItemId item, double q)
@@ -263,7 +263,7 @@ public sealed class ProductionSolver : IProductionSolver
                 return false;
             }
 
-            double rate = recipe.MainProduct.Amount * 60 / recipe.TimeSeconds;
+            double rate = recipe.PerMinute(recipe.MainProduct);
             double d = PythonNumerics.Min(runs, q / rate);
             if (d > PlannerConstants.TrimCutTolerance)
             {

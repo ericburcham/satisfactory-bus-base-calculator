@@ -21,6 +21,9 @@ public sealed class PlannerConstantsTests
     }
 
     [Test]
+    public void SecondsPerMinute_IsSixty() => Assert.That(PlannerConstants.SecondsPerMinute, Is.EqualTo(60));
+
+    [Test]
     public void Extractors_MatchThePython()
     {
         Assert.Multiple(() =>

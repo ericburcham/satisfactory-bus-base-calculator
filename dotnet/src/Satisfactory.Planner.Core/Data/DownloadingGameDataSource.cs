@@ -5,7 +5,9 @@ namespace Satisfactory.Planner.Core.Data;
 
 /// <summary>
 /// Decorator for another <see cref="IGameDataSource"/> that first downloads the data file from
-/// <see cref="PlannerConstants.DataUrl"/> when it does not exist (the download half of Python <c>load_data</c>).
+/// <see cref="PlannerConstants.DataUrl"/> when nothing exists at its path (the download half of Python
+/// <c>load_data</c>). As Python's <c>os.path.exists</c>, an existing directory counts as present: it is not
+/// downloaded over, and the inner source fails to read it.
 /// </summary>
 public sealed class DownloadingGameDataSource : IGameDataSource
 {
@@ -32,10 +34,13 @@ public sealed class DownloadingGameDataSource : IGameDataSource
     }
 
     /// <inheritdoc />
-    /// <exception cref="PlannerException">The download failed.</exception>
+    /// <exception cref="PlannerException">
+    /// The download failed: an HTTP error, a timeout, or an I/O error while the body is received or saved.
+    /// </exception>
+    /// <exception cref="OperationCanceledException"><paramref name="cancellationToken"/> was cancelled.</exception>
     public async Task<GameData> LoadAsync(CancellationToken cancellationToken)
     {
-        if (!File.Exists(_path))
+        if (!Path.Exists(_path))
         {
             await _notices.WriteLineAsync($"{_path} not found; downloading {PlannerConstants.DataUrl}")
                 .ConfigureAwait(false);
@@ -68,7 +73,7 @@ public sealed class DownloadingGameDataSource : IGameDataSource
 
             File.Move(partial, _path, overwrite: true);
         }
-        catch (HttpRequestException e)
+        catch (Exception e) when (IsDownloadFailure(e, cancellationToken))
         {
             TryDelete(partial);
             throw new PlannerException($"Could not download {PlannerConstants.DataUrl}: {e.Message}", e);
@@ -79,6 +84,15 @@ public sealed class DownloadingGameDataSource : IGameDataSource
             throw;
         }
     }
+
+    /// <summary>
+    /// Whether <paramref name="e"/> is a failed download rather than a cancellation by the caller: an HTTP error, an
+    /// I/O error (such as the connection dropping while the body is copied), or a cancellation the caller did not ask
+    /// for (<see cref="HttpClient.Timeout"/>).
+    /// </summary>
+    private static bool IsDownloadFailure(Exception e, CancellationToken cancellationToken) =>
+        e is HttpRequestException or IOException
+        || (e is OperationCanceledException && !cancellationToken.IsCancellationRequested);
 
     private static void TryDelete(string path)
     {

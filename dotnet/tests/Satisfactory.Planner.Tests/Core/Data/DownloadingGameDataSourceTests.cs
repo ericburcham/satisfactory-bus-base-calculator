@@ -119,6 +119,84 @@ public sealed class DownloadingGameDataSourceTests
     }
 
     [Test]
+    public async Task ExistingDirectory_IsNotDownloadedOver()
+    {
+        // Python checks os.path.exists, which is true for a directory: no notice, no download; open() then fails.
+        string path = _scratch.Combine("adir");
+        Directory.CreateDirectory(path);
+        using var handler = new FakeHttpMessageHandler(_ => throw new AssertionException("no request expected"));
+        using var http = new HttpClient(handler);
+        var inner = new RecordingSource(path);
+        using var notices = new StringWriter();
+        var source = new DownloadingGameDataSource(inner, http, path, notices);
+
+        await source.LoadAsync(CancellationToken.None);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(handler.CallCount, Is.Zero);
+            Assert.That(notices.ToString(), Is.Empty);
+            Assert.That(inner.Calls, Is.EqualTo(1));
+            Assert.That(Directory.GetFileSystemEntries(_scratch.Path), Is.EqualTo(new[] { path }));
+        });
+    }
+
+    [Test]
+    public void TimedOutDownload_ThrowsPlannerExceptionAndLeavesNoFile()
+    {
+        string path = _scratch.Combine("satisfactory_data.json");
+        using var handler = new NeverAnsweringHandler();
+        using var http = new HttpClient(handler) { Timeout = TimeSpan.FromMilliseconds(50) };
+        var inner = new RecordingSource(path);
+        var source = new DownloadingGameDataSource(inner, http, path, TextWriter.Null);
+
+        Assert.That(
+            () => source.LoadAsync(CancellationToken.None),
+            Throws.TypeOf<PlannerException>().With.Message.StartsWith($"Could not download {PlannerConstants.DataUrl}: "));
+        Assert.Multiple(() =>
+        {
+            Assert.That(Directory.GetFiles(_scratch.Path), Is.Empty);
+            Assert.That(inner.Calls, Is.Zero);
+        });
+    }
+
+    [Test]
+    public void ConnectionDroppedDuringTheBody_ThrowsPlannerExceptionAndLeavesNoFile()
+    {
+        string path = _scratch.Combine("satisfactory_data.json");
+        using var handler = new FakeHttpMessageHandler(
+            _ => new HttpResponseMessage(HttpStatusCode.OK) { Content = new StreamContent(new FailingStream()) });
+        using var http = new HttpClient(handler);
+        var inner = new RecordingSource(path);
+        var source = new DownloadingGameDataSource(inner, http, path, TextWriter.Null);
+
+        Assert.That(
+            () => source.LoadAsync(CancellationToken.None),
+            Throws.TypeOf<PlannerException>()
+                .With.Message.StartsWith($"Could not download {PlannerConstants.DataUrl}: ")
+                .And.InnerException.Not.Null);
+        Assert.Multiple(() =>
+        {
+            Assert.That(Directory.GetFiles(_scratch.Path), Is.Empty, "the partial download is removed");
+            Assert.That(inner.Calls, Is.Zero);
+        });
+    }
+
+    [Test]
+    public void CancelledByTheCaller_PropagatesTheCancellation()
+    {
+        string path = _scratch.Combine("satisfactory_data.json");
+        using var handler = new FakeHttpMessageHandler("{}");
+        using var http = new HttpClient(handler);
+        var source = new DownloadingGameDataSource(new RecordingSource(path), http, path, TextWriter.Null);
+        using var cancellation = new CancellationTokenSource();
+        cancellation.Cancel();
+
+        Assert.That(() => source.LoadAsync(cancellation.Token), Throws.InstanceOf<OperationCanceledException>());
+        Assert.That(Directory.GetFiles(_scratch.Path), Is.Empty);
+    }
+
+    [Test]
     public async Task DownloadedFile_IsReadableByTheJsonSource()
     {
         string path = _scratch.Combine("fresh", "satisfactory_data.json");
@@ -139,6 +217,55 @@ public sealed class DownloadingGameDataSourceTests
             Assert.That(data.Resources.Select(r => r.Value), Is.EqualTo(ExpectedSequence.Of("Desc_OreIron_C")));
             Assert.That(data.Recipes, Has.Count.EqualTo(2));
         });
+    }
+
+    /// <summary>A handler that never answers, so only <see cref="HttpClient.Timeout"/> ends the request.</summary>
+    private sealed class NeverAnsweringHandler : HttpMessageHandler
+    {
+        protected override async Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            await Task.Delay(Timeout.Infinite, cancellationToken);
+            throw new AssertionException("unreachable");
+        }
+    }
+
+    /// <summary>A response body whose reads fail, like a connection that drops after the headers arrived.</summary>
+    private sealed class FailingStream : Stream
+    {
+        public const string Message = "The response ended prematurely.";
+
+        public override bool CanRead => true;
+
+        public override bool CanSeek => false;
+
+        public override bool CanWrite => false;
+
+        public override long Length => throw new NotSupportedException();
+
+        public override long Position
+        {
+            get => throw new NotSupportedException();
+            set => throw new NotSupportedException();
+        }
+
+        public override int Read(byte[] buffer, int offset, int count) => throw new IOException(Message);
+
+        public override ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default) =>
+            ValueTask.FromException<int>(new IOException(Message));
+
+        public override Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken) =>
+            Task.FromException<int>(new IOException(Message));
+
+        public override void Flush()
+        {
+        }
+
+        public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
+
+        public override void SetLength(long value) => throw new NotSupportedException();
+
+        public override void Write(byte[] buffer, int offset, int count) => throw new NotSupportedException();
     }
 
     private sealed class RecordingSource(string path) : IGameDataSource

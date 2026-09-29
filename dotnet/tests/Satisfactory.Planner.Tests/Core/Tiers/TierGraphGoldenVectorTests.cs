@@ -6,8 +6,9 @@ using Satisfactory.Planner.Core.Progression;
 using Satisfactory.Planner.Core.Tiers;
 using Satisfactory.Planner.Core.Tiers.Graph;
 using Satisfactory.Planner.Tests.TestSupport;
+using Satisfactory.Planner.Tests.TestVectors.TierGraph;
 
-namespace Satisfactory.Planner.Tests.TestVectors.TierGraph;
+namespace Satisfactory.Planner.Tests.Core.Tiers;
 
 /// <summary>
 /// Cross-checks <see cref="TierGraphBuilder"/> and <see cref="TierBuildOrder"/> against the golden

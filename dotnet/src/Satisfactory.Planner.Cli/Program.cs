@@ -42,8 +42,11 @@ public static class Program
     /// The HTTP handler for downloading a missing data file (not disposed); <see langword="null"/> uses the default.
     /// </param>
     /// <returns>
-    /// 0 on success or after <c>--help</c>; 1 when planning fails (<see cref="PlannerException"/>) or Graphviz fails
-    /// (<see cref="GraphvizRenderException"/>); 2 on a usage error (as argparse).
+    /// 0 on success or after <c>--help</c>; 1 when planning fails (<see cref="PlannerException"/>), Graphviz fails
+    /// (<see cref="GraphvizRenderException"/>), the data file cannot be downloaded, or a file-system operation fails
+    /// (<see cref="IOException"/> or <see cref="UnauthorizedAccessException"/>: the output folder or a report cannot
+    /// be created or written, the data file cannot be read), which is Python's exit status for an uncaught error;
+    /// 2 on a usage error (as argparse).
     /// </returns>
     public static async Task<int> RunAsync(
         IReadOnlyList<string> args,
@@ -76,7 +79,7 @@ public static class Program
             await stdout.WriteAsync(summary).ConfigureAwait(false);
             return 0;
         }
-        catch (Exception e) when (e is PlannerException or GraphvizRenderException)
+        catch (Exception e) when (e is PlannerException or GraphvizRenderException or IOException or UnauthorizedAccessException)
         {
             await stderr.WriteAsync(OneLine(e.Message) + newLine).ConfigureAwait(false);
             return 1;
@@ -95,8 +98,11 @@ public static class Program
     private static async Task<string> RunPlannerAsync(
         PlannerOptions options, TextWriter stdout, string newLine, IDotRenderer? dotRenderer, HttpMessageHandler? httpHandler)
     {
+        // Python's os.makedirs("") and open("") fail; the path APIs here would throw ArgumentException instead.
+        RequireNonEmptyPath(options.OutputFolder, "--out");
         IFileSystem fileSystem = new PhysicalFileSystem();
         fileSystem.CreateDirectory(options.OutputFolder);
+        RequireNonEmptyPath(options.DataPath, "--data");
 
         GameData data;
         using (HttpClient http = httpHandler is null ? new HttpClient() : new HttpClient(httpHandler, disposeHandler: false))
@@ -134,6 +140,16 @@ public static class Program
             renderer,
             new SummaryWriter(fileSystem, newLine));
         return generator.Generate(results, options.OutputFolder);
+    }
+
+    /// <summary>Fails like Python does for an empty path: a one-line error and exit code 1.</summary>
+    /// <exception cref="PlannerException"><paramref name="path"/> is empty.</exception>
+    private static void RequireNonEmptyPath(string path, string option)
+    {
+        if (path.Length == 0)
+        {
+            throw new PlannerException($"{option}: No such file or directory: ''");
+        }
     }
 
     /// <summary>Joins a multi-line message (such as Graphviz's standard error) into one line.</summary>

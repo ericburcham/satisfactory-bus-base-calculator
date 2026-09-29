@@ -8,8 +8,9 @@ using Satisfactory.Planner.Core.Selection;
 using Satisfactory.Planner.Core.Solving;
 using Satisfactory.Planner.Core.Tiers;
 using Satisfactory.Planner.Tests.TestSupport;
+using Satisfactory.Planner.Tests.TestVectors.PlannerParity;
 
-namespace Satisfactory.Planner.Tests.TestVectors.PlannerParity;
+namespace Satisfactory.Planner.Tests.Core.Tiers;
 
 /// <summary>
 /// Runs the real .NET planning pipeline on <c>data/satisfactory_data.json</c> and compares every tier result, and every

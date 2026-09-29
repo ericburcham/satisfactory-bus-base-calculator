@@ -39,7 +39,8 @@ dotnet test dotnet/SatisfactoryPlanner.slnx --filter "TestCategory=Parity"     #
   non-`.svg` files are exactly the golden ones, compares each file (one test case per golden file), checks that the
   console output is the summary, and checks the line endings the program writes. A mismatch reports the file, the
   1-based line number and both versions of the first differing line (for `.dot` files: the missing and extra lines).
-- **Parity** (`tests/Satisfactory.Planner.Tests/TestVectors/PlannerParity/`): runs the .NET planner on
+- **Parity** (`tests/Satisfactory.Planner.Tests/Core/Tiers/TierPlannerParityTests.cs`, with the Python dumps and
+  `dump_python_tiers.py` in `TestVectors/PlannerParity/`): runs the .NET planner on
   `data/satisfactory_data.json` and compares every tier result and every optimisation round with a dump of the Python
   `run_tiers` (two configurations: the defaults, and `--miner mk2 --purity pure --include-ingots`). Floats are
   compared as Python `repr` strings, so they must be bit-identical; dictionary contents must be in the same order.
@@ -114,7 +115,7 @@ And once:
 | Code | Meaning |
 | --- | --- |
 | 0 | Success, or `--help`. |
-| 1 | The planner failed (`PlannerException`: bad or missing data, a failed download, or one of the Python's `sys.exit` conditions) or Graphviz failed (`GraphvizRenderException`). The message is written to standard error as one line. |
+| 1 | The planner failed (`PlannerException`: bad or missing data, a failed or timed-out download, an empty `--data` or `--out`, or one of the Python's `sys.exit` conditions), Graphviz failed (`GraphvizRenderException`), or a file-system operation failed (`IOException`, `UnauthorizedAccessException`: the output folder or a report cannot be created or written, the data file cannot be read). The message is written to standard error as one line. Python exits with 1 on every uncaught error too. |
 | 2 | Usage error: the usage and `satisfactory-planner: error: <message>` are written to standard error. |
 
 ## Project map
@@ -135,7 +136,7 @@ Satisfactory.Planner.Tests       -> all five
 | `src/Satisfactory.Planner.Reporting` | The output files: `Formatting` (Python number and text formatting, CSV), `IO` (`IFileSystem`), `Writers` (text, CSV, DOT, summary, per-tier totals) and `Rendering` (`ReportGenerator`, which writes all tiers and the summary, and `IGraphRenderer`). |
 | `src/Satisfactory.Planner.Graphviz` | Running Graphviz: locating `dot` on the `PATH`, running it, and a renderer that does nothing when it is missing. |
 | `src/Satisfactory.Planner.Cli` | The `satisfactory-planner` executable: `Program` (the composition root, which builds the object graph by hand), the `argparse`-compatible command-line parser and usage text, and `GraphvizRendererAdapter`. |
-| `tests/Satisfactory.Planner.Tests` | NUnit tests for every public class, the Python test vectors, the parity test and the golden test. |
+| `tests/Satisfactory.Planner.Tests` | NUnit tests for every public class, the parity test and the golden test, in folders that mirror the libraries. `TestVectors/` holds only the Python-generated reference data, the scripts that produce it and the classes that load it. |
 
 Patterns used:
 
@@ -196,3 +197,11 @@ What the port does to produce the same output as the Python:
   report sees the last tier's extractor lock state (raw versus bus inputs); the port does the same.
 - **Text encoding.** The port writes UTF-8 without a BOM; Python on Windows writes the locale encoding. The difference
   cannot show with the current data: no name that can appear in the reports contains a non-ASCII character.
+- **DOT quoting.** The Python writes names into `.dot` labels and node ids unescaped, so a name containing `"` or a
+  newline would give invalid DOT and the Python run would fail when Graphviz renders it. The port escapes `"` as `\"`
+  and a newline as `\n`. This cannot show with the current data: no item, building or recipe name contains either
+  character.
+- **Error exit status.** The Python ends every uncaught error (an unwritable output folder, an unreadable data file, a
+  failed download) with a traceback and exit status 1. The port prints the error's message as one line and also exits
+  with 1. Like Python's `os.path.exists`, an existing directory given as `--data` counts as present, so it is not
+  downloaded over; reading it then fails.

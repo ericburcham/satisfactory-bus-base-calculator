@@ -1,3 +1,4 @@
+using Satisfactory.Planner.Core.Configuration;
 using Satisfactory.Planner.Core.Identifiers;
 using Satisfactory.Planner.Core.Model;
 
@@ -24,7 +25,7 @@ public sealed class ProductionBalance
         foreach ((RecipeId id, double machines) in state.Runs)
         {
             Recipe recipe = state.Recipes[id];
-            double f = machines * 60 / recipe.TimeSeconds;
+            double f = machines * PlannerConstants.SecondsPerMinute / recipe.TimeSeconds;
             foreach (ItemAmount product in recipe.Products)
             {
                 Add(balance, product.Item, product.Amount * f);

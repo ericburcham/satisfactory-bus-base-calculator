@@ -18,8 +18,11 @@ public static class PlannerConstants
     /// <summary>The data file's name (Python <c>DATA_FILE</c>).</summary>
     public const string DataFileName = "satisfactory_data.json";
 
-    /// <summary>The default <c>--data</c> path of the port.</summary>
-    public const string DefaultDataPath = "data/satisfactory_data.json";
+    /// <summary>
+    /// The default <c>--data</c> path of the port: <see cref="DataFileName"/> (Python <c>DATA_FILE</c>) under
+    /// <c>data/</c>, relative to the working directory.
+    /// </summary>
+    public const string DefaultDataPath = "data/" + DataFileName;
 
     /// <summary>The default <c>--out</c> folder.</summary>
     public const string DefaultOutputFolder = "tiers";
@@ -104,6 +107,13 @@ public static class PlannerConstants
         [CrudeOil] = new("Desc_OilPump_C"),
         [NitrogenGas] = new("Desc_FrackingSmasher_C"),
     }.ToFrozenDictionary();
+
+    // ---- units -------------------------------------------------------------------------------------------------
+
+    /// <summary>
+    /// Seconds per minute: converts a per-cycle amount into a per-minute rate (the Python's inline <c>* 60 /</c>).
+    /// </summary>
+    public const int SecondsPerMinute = 60;
 
     // ---- power -------------------------------------------------------------------------------------------------
 

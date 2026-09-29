@@ -1,3 +1,4 @@
+using Satisfactory.Planner.Core.Configuration;
 using Satisfactory.Planner.Core.Identifiers;
 
 namespace Satisfactory.Planner.Core.Model;
@@ -33,7 +34,7 @@ public abstract record Recipe(
     public double PerMinute(ItemAmount amount)
     {
         ArgumentNullException.ThrowIfNull(amount);
-        return amount.Amount * 60 / TimeSeconds;
+        return amount.Amount * PlannerConstants.SecondsPerMinute / TimeSeconds;
     }
 
     /// <summary>Whether any product of this recipe is <paramref name="item"/>.</summary>

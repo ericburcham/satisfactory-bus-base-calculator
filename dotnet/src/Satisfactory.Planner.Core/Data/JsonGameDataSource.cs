@@ -268,7 +268,7 @@ public sealed class JsonGameDataSource : IGameDataSource
             new[]
             {
                 new ItemAmount(rod, 1),
-                new ItemAmount(PlannerConstants.Water, PlannerConstants.NuclearWaterPerMinute * t / 60),
+                new ItemAmount(PlannerConstants.Water, PlannerConstants.NuclearWaterPerMinute * t / PlannerConstants.SecondsPerMinute),
             }.AsReadOnly(),
             new[] { new ItemAmount(waste, wastePerRod) }.AsReadOnly(),
             PlannerConstants.NuclearPowerPlantName,
