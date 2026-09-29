@@ -192,6 +192,30 @@ public sealed class TierDotWriterTests
     }
 
     [Test]
+    public void Render_CalledDirectlyWithALabel_WritesTheTitleLine()
+    {
+        var writer = new TierDotWriter(_fileSystem, "\n");
+
+        string text = writer.Render(MinimalContext().Graph, "tier", "Tier 0 - Onboarding: 1 new machines");
+
+        Assert.That(
+            text.Split('\n')[3],
+            Is.EqualTo("  labelloc=t; label=\"Tier 0 - Onboarding: 1 new machines\"; fontsize=18;"));
+    }
+
+    [Test]
+    public void Write_OneWriterForManyTiers_KeepsNoStateBetweenThem()
+    {
+        var writer = new TierDotWriter(_fileSystem, "\n");
+
+        string first = _fileSystem.ReadAllText(writer.Write(Rich(), RichContext()));
+        _ = writer.Write(Minimal(), MinimalContext());
+        string again = _fileSystem.ReadAllText(writer.Write(Rich(), RichContext()));
+
+        Assert.That(again, Is.EqualTo(first));
+    }
+
+    [Test]
     public void Write_RejectsNulls()
     {
         var writer = new TierDotWriter(_fileSystem, "\n");

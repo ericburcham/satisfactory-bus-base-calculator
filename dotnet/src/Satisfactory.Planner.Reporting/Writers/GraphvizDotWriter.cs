@@ -32,14 +32,19 @@ public class GraphvizDotWriter<TNode>
     /// <summary>Renders the graph.</summary>
     /// <param name="graph">The graph to render.</param>
     /// <param name="graphName">The graph name written after <c>digraph</c>, verbatim (it must be a valid DOT ID).</param>
+    /// <param name="graphLabel">
+    /// The graph's title, or <see langword="null"/> for none. It is handed to <see cref="GraphAttributeStatements"/>,
+    /// which writes it as the graph's <c>label</c> attribute; it is the only per-render information, so one writer
+    /// instance can render any number of graphs, also concurrently.
+    /// </param>
     /// <returns>The DOT text, ending with the line terminator.</returns>
-    public string Render(DirectedAcyclicGraph<TNode> graph, string graphName)
+    public string Render(DirectedAcyclicGraph<TNode> graph, string graphName, string? graphLabel = null)
     {
         ArgumentNullException.ThrowIfNull(graph);
         ArgumentException.ThrowIfNullOrEmpty(graphName);
         var text = new StringBuilder();
         text.Append("digraph ").Append(graphName).Append(" {").Append(_newLine);
-        foreach (string statement in GraphAttributeStatements(graph))
+        foreach (string statement in GraphAttributeStatements(graph, graphLabel))
         {
             text.Append(statement).Append(_newLine);
         }
@@ -55,11 +60,14 @@ public class GraphvizDotWriter<TNode>
 
     /// <summary>
     /// The graph-level statement lines written right after <c>digraph {name} {</c> (for example default node and edge
-    /// attributes). The default writes none.
+    /// attributes, and the title). The default writes <c>  label="{graphLabel}";</c> when there is a label, and nothing
+    /// otherwise.
     /// </summary>
     /// <param name="graph">The graph being rendered.</param>
+    /// <param name="graphLabel">The title passed to <see cref="Render"/>, or <see langword="null"/>.</param>
     /// <returns>Complete lines, including their indentation.</returns>
-    protected virtual IEnumerable<string> GraphAttributeStatements(DirectedAcyclicGraph<TNode> graph) => [];
+    protected virtual IEnumerable<string> GraphAttributeStatements(DirectedAcyclicGraph<TNode> graph, string? graphLabel) =>
+        graphLabel is null ? [] : [Indent + "label=" + Quote(graphLabel) + ";"];
 
     /// <summary>The attributes of a node, in output order. The default has none.</summary>
     /// <param name="node">The node.</param>

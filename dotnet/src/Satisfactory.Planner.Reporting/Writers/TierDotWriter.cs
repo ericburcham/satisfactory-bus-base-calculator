@@ -24,9 +24,11 @@ namespace Satisfactory.Planner.Reporting.Writers;
 /// writer uses their first-use order. Every other line is in the Python's order.
 /// </para>
 /// <para>
-/// When <see cref="GraphvizDotWriter{TNode}.Render"/> is called directly instead of through <see cref="Write"/>, there is
-/// no tier to name: the title line is left out and the machine groups are written in <see cref="MachineGroupNode.Step"/>
-/// order.
+/// The writer keeps no state between or during renders: <see cref="Write"/> passes the title to
+/// <see cref="GraphvizDotWriter{TNode}.Render"/> as the graph label, and the machine groups are written in
+/// <see cref="MachineGroupNode.Step"/> order, which <see cref="ITierBuildOrder"/> set when it computed
+/// <see cref="TierReportContext.BuildOrder"/>. When <see cref="GraphvizDotWriter{TNode}.Render"/> is called directly
+/// without a label, the title line is left out.
 /// </para>
 /// </remarks>
 public sealed class TierDotWriter : GraphvizDotWriter<TierGraphNode>, ITierDotWriter
@@ -34,8 +36,6 @@ public sealed class TierDotWriter : GraphvizDotWriter<TierGraphNode>, ITierDotWr
     private const string GraphName = "tier";
     private const string SinkColor = "\"#cc3333\"";
     private readonly IFileSystem _fileSystem;
-    private readonly Lock _gate = new();
-    private (TierResult Result, TierReportContext Context)? _current;
 
     /// <summary>Creates the writer.</summary>
     /// <param name="fileSystem">The file system the <c>.dot</c> file is written to.</param>
@@ -52,36 +52,23 @@ public sealed class TierDotWriter : GraphvizDotWriter<TierGraphNode>, ITierDotWr
     {
         ArgumentNullException.ThrowIfNull(result);
         ArgumentNullException.ThrowIfNull(context);
-        string content;
-        lock (_gate)
-        {
-            _current = (result, context);
-            try
-            {
-                content = Render(context.Graph, GraphName);
-            }
-            finally
-            {
-                _current = null;
-            }
-        }
-
+        string title = string.Create(
+            CultureInfo.InvariantCulture, $"{TierNames.For(result.Tier)}: {context.Totals.NewMachines} new machines");
+        string content = Render(context.Graph, GraphName, title);
         string path = Path.Combine(context.OutputFolder, string.Create(CultureInfo.InvariantCulture, $"tier_{result.Tier}.dot"));
         _fileSystem.WriteAllText(path, content);
         return path;
     }
 
     /// <inheritdoc />
-    protected override IEnumerable<string> GraphAttributeStatements(DirectedAcyclicGraph<TierGraphNode> graph)
+    protected override IEnumerable<string> GraphAttributeStatements(
+        DirectedAcyclicGraph<TierGraphNode> graph, string? graphLabel)
     {
         yield return "  rankdir=LR; node [shape=box, style=\"rounded,filled\", fontname=\"Helvetica\", fontsize=10, fillcolor=\"#ffffff\"];";
         yield return "  edge [color=\"#888888\", arrowsize=0.6];";
-        if (CurrentFor(graph) is { } current)
+        if (graphLabel is not null)
         {
-            string title = string.Create(
-                CultureInfo.InvariantCulture,
-                $"{TierNames.For(current.Result.Tier)}: {current.Context.Totals.NewMachines} new machines");
-            yield return $"  labelloc=t; label={Quote(title)}; fontsize=18;";
+            yield return $"  labelloc=t; label={Quote(graphLabel)}; fontsize=18;";
         }
     }
 
@@ -89,9 +76,8 @@ public sealed class TierDotWriter : GraphvizDotWriter<TierGraphNode>, ITierDotWr
     protected override IEnumerable<string> BodyStatements(DirectedAcyclicGraph<TierGraphNode> graph)
     {
         ArgumentNullException.ThrowIfNull(graph);
-        IEnumerable<MachineGroupNode> buildOrder = CurrentFor(graph)?.Context.BuildOrder
-            ?? [.. graph.Nodes.OfType<MachineGroupNode>().OrderBy(m => m.Step)];
-        foreach (MachineGroupNode machine in buildOrder)
+        // The build order: ITierBuildOrder numbered the machine groups; a stable sort keeps insertion order on ties.
+        foreach (MachineGroupNode machine in graph.Nodes.OfType<MachineGroupNode>().OrderBy(m => m.Step))
         {
             yield return NodeStatement(machine);
             foreach (GraphEdge<TierGraphNode> edge in graph.IncomingEdges(machine))
@@ -166,10 +152,6 @@ public sealed class TierDotWriter : GraphvizDotWriter<TierGraphNode>, ITierDotWr
         yield return new("label", Quote(edge.Label ?? string.Empty));
         yield return new("fontcolor", SinkColor);
     }
-
-    /// <summary>The tier being written by <see cref="Write"/>, when <paramref name="graph"/> is its graph.</summary>
-    private (TierResult Result, TierReportContext Context)? CurrentFor(DirectedAcyclicGraph<TierGraphNode> graph) =>
-        _current is { } current && ReferenceEquals(current.Context.Graph, graph) ? current : null;
 
     private static bool FeedsOnlyTheSink(DirectedAcyclicGraph<TierGraphNode> graph, ExternalInputNode input)
     {

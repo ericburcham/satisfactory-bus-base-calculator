@@ -61,6 +61,29 @@ public sealed class GraphvizDotWriterTests
     }
 
     [Test]
+    public void Render_WithALabel_DefaultWritesItAsTheGraphLabel()
+    {
+        string text = new GraphvizDotWriter<TestNode>("\n").Render(new DirectedAcyclicGraph<TestNode>(), "g", "My \"graph\"\nsub");
+
+        Assert.That(text, Is.EqualTo("digraph g {\n  label=\"My \\\"graph\\\"\\nsub\";\n}\n"));
+    }
+
+    [Test]
+    public void Render_PassesTheLabelToTheGraphAttributeHook()
+    {
+        var writer = new CustomWriter();
+
+        string withLabel = writer.Render(Sample(), "custom", "T");
+        string withoutLabel = writer.Render(Sample(), "custom");
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(withLabel, Does.StartWith("digraph custom {\n  rankdir=LR;\n  title=\"T\";\n  \"c\" ["));
+            Assert.That(withoutLabel, Does.StartWith("digraph custom {\n  rankdir=LR;\n  \"c\" ["));
+        });
+    }
+
+    [Test]
     public void Quote_EscapesQuotesAndNewlinesOnly()
     {
         Assert.That(CustomWriter.QuoteText("a\"b\nc\\d"), Is.EqualTo("\"a\\\"b\\nc\\d\""));
@@ -89,7 +112,8 @@ public sealed class GraphvizDotWriterTests
 
         public static string QuoteText(string text) => Quote(text);
 
-        protected override IEnumerable<string> GraphAttributeStatements(DirectedAcyclicGraph<TestNode> graph) => ["  rankdir=LR;"];
+        protected override IEnumerable<string> GraphAttributeStatements(DirectedAcyclicGraph<TestNode> graph, string? graphLabel) =>
+            graphLabel is null ? ["  rankdir=LR;"] : ["  rankdir=LR;", "  title=" + Quote(graphLabel) + ";"];
 
         protected override IEnumerable<KeyValuePair<string, string>> NodeAttributes(TestNode node) =>
             [new("shape", "box"), new("label", Quote("C!"))];
